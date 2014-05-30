@@ -51,6 +51,7 @@
      <Compile Include="Assets\Place.cs" />
      <Compile Include="Assets\Server.cs" />
      <Compile Include="Assets\characterLerp.cs" />
+     <Compile Include="Assets\faceMover.cs" />
      <Compile Include="Assets\mouseClick.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />

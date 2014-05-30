@@ -6,11 +6,11 @@ public class Cosmos : MonoBehaviour
 	private Hashtable serverTable = new Hashtable();
 
 	public Cosmos() {
-		serverTable.Add("Skagerrak", "skag_text_file");
+		serverTable.Add(0, "skag_text_file.txt");
 	}
 
-	public getServerTextFile(string serverName) {
-		return serverTable[serverName];
+	public string getServerTextFile(string serverName) {
+		return (string)serverTable[serverName];
 	}
 
 	// Use this for initialization

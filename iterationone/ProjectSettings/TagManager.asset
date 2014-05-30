@@ -45,6 +45,10 @@ TagManager:
     userID: 1
     uniqueID: 1883513613
     locked: 0
+  - name: Places
+    userID: 3
+    uniqueID: 3921099651
+    locked: 0
   - name: Character
     userID: 2
     uniqueID: 393833657
