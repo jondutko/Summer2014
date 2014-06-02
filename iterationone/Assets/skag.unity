@@ -103,7 +103,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7c0113ee3df49aab152b51d7d5268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Undertunnel
+  placeName: mnts
+  adjacencies:
+  - {fileID: 1170939148}
+  - {fileID: 109096345}
+  - {fileID: 1413179140}
+  prevPlace: {fileID: 0}
+  visited: 0
 --- !u!58 &25552086
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -251,7 +257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7c0113ee3df49aab152b51d7d5268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Fort of Goblins
+  placeName: goblins
+  adjacencies:
+  - {fileID: 1170939148}
+  - {fileID: 25552085}
+  prevPlace: {fileID: 0}
+  visited: 0
 --- !u!58 &109096346
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -315,7 +326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7c0113ee3df49aab152b51d7d5268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Bridgeport
+  placeName: bridgeport
+  adjacencies:
+  - {fileID: 680349464}
+  - {fileID: 1170939148}
+  prevPlace: {fileID: 0}
+  visited: 0
 --- !u!58 &605623872
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -401,7 +417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7c0113ee3df49aab152b51d7d5268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Startburg
+  placeName: first town
+  adjacencies:
+  - {fileID: 605623871}
+  prevPlace: {fileID: 0}
+  visited: 0
 --- !u!58 &680349465
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -507,8 +527,11 @@ MonoBehaviour:
   placeList: []
   ourCam: {fileID: 1620045418}
   moving: 0
+  traversePath: 0
   currentPlace: {fileID: 0}
   targetPlace: {fileID: 0}
+  placePath: []
+  countMAX: 0
 --- !u!1 &1170939146
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +572,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7c0113ee3df49aab152b51d7d5268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Shady Woods
+  placeName: forest
+  adjacencies:
+  - {fileID: 605623871}
+  - {fileID: 109096345}
+  - {fileID: 25552085}
+  prevPlace: {fileID: 0}
+  visited: 0
 --- !u!58 &1170939149
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -674,7 +703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7c0113ee3df49aab152b51d7d5268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Fuckboi Keep
+  placeName: fkboi keep
+  adjacencies:
+  - {fileID: 25552085}
+  prevPlace: {fileID: 0}
+  visited: 0
 --- !u!58 &1413179141
 CircleCollider2D:
   m_ObjectHideFlags: 0
