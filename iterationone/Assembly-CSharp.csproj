@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Character.cs" />
+     <Compile Include="Assets\CharacterGUI.cs" />
+     <Compile Include="Assets\ClanGUI.cs" />
      <Compile Include="Assets\Cosmos.cs" />
      <Compile Include="Assets\Place.cs" />
      <Compile Include="Assets\Server.cs" />

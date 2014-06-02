@@ -15,7 +15,6 @@ public class faceMover : MonoBehaviour {
 	}
 
 	public bool move(Vector2 newPosition) {
-		Debug.Log ("Registered move");
 		transform.position = Vector2.Lerp (transform.position, newPosition, Time.deltaTime*smooth);
 		Vector2 curPosition = new Vector2 (transform.position.x, transform.position.y);
 		if (Vector2.Distance (curPosition, newPosition) < 0.05) {
