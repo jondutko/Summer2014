@@ -536,6 +536,49 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &768307433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 768307435}
+  - 114: {fileID: 768307434}
+  m_Layer: 0
+  m_Name: ClanGUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &768307434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 768307433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b077cdf9db784689b800eff622c19af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parchTexture: {fileID: 2800000, guid: 23717747e4f954a129d4ebcd11ed1fbb, type: 3}
+  guiCam: {fileID: 1023118034}
+  theClan: {fileID: 2076106938}
+  activeChar: {fileID: 0}
+  sisterGui: {fileID: 984586500}
+--- !u!4 &768307435
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 768307433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.37332916, y: -.75557816, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 810951884}
 --- !u!1 &810951882
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,28 +587,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 810951884}
-  - 114: {fileID: 810951883}
-  - 114: {fileID: 810951885}
   m_Layer: 0
-  m_Name: Gui Origin
+  m_Name: Master GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &810951883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 810951882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30380d213a2fa437298557ef4c761fd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parchTexture: {fileID: 2800000, guid: 23717747e4f954a129d4ebcd11ed1fbb, type: 3}
-  guiCam: {fileID: 1023118034}
 --- !u!4 &810951884
 Transform:
   m_ObjectHideFlags: 0
@@ -575,71 +603,99 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 30, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 984586501}
+  - {fileID: 768307435}
   m_Father: {fileID: 0}
---- !u!114 &810951885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 810951882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b077cdf9db784689b800eff622c19af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parchTexture: {fileID: 2800000, guid: 23717747e4f954a129d4ebcd11ed1fbb, type: 3}
-  guiCam: {fileID: 1023118034}
---- !u!1 &830349108
+--- !u!1 &984586499
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 830349110}
-  - 212: {fileID: 830349109}
+  - 4: {fileID: 984586501}
+  - 114: {fileID: 984586500}
   m_Layer: 0
-  m_Name: Draven
+  m_Name: CharacterGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &830349109
-SpriteRenderer:
+--- !u!114 &984586500
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 830349108}
+  m_GameObject: {fileID: 984586499}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_SortingLayerID: 2159798017
-  m_Sprite: {fileID: 21300000, guid: d22ccd5919df447d0ac2e5ef8461b7ce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &830349110
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30380d213a2fa437298557ef4c761fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parchTexture: {fileID: 2800000, guid: 23717747e4f954a129d4ebcd11ed1fbb, type: 3}
+  guiCam: {fileID: 1023118034}
+  charShown: {fileID: 0}
+  offset: .0250000004
+  sisterGUI: {fileID: 768307434}
+  guiFont: {fileID: 12800000, guid: 916dcdd05e7c7478a8c5d29fa445b208, type: 3}
+--- !u!4 &984586501
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 830349108}
+  m_GameObject: {fileID: 984586499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.2464046, y: -1.12421238, z: 0}
-  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_LocalPosition: {x: 2.37332916, y: -.75557816, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 810951884}
+--- !u!1 &1005275429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1005275430}
+  - 114: {fileID: 1005275431}
+  m_Layer: 0
+  m_Name: Lulu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1005275430
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1005275429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.37332916, y: -.75557816, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2076106939}
+--- !u!114 &1005275431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1005275429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e2803725ae143a795e47b396c3da4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Lulu
+  jobName: Bitchbitch
+  jobObject: {fileID: 0}
+  curLevel: 3
+  lvlObject: {fileID: 0}
+  portrait: {fileID: 2800000, guid: 3b8f8424108394b6eb453e2cfcd8950f, type: 3}
+  icon: {fileID: 2800000, guid: d870a0bddc05f436cad534247eb73a60, type: 3}
 --- !u!1 &1023118029
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +933,51 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1340876241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1340876243}
+  - 114: {fileID: 1340876242}
+  m_Layer: 0
+  m_Name: Draven
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1340876242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340876241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e2803725ae143a795e47b396c3da4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Draven
+  jobName: Faggotmancer
+  jobObject: {fileID: 0}
+  curLevel: 1
+  lvlObject: {fileID: 0}
+  portrait: {fileID: 2800000, guid: aab097ede914e416da3712a5f2636dfd, type: 3}
+  icon: {fileID: 2800000, guid: d22ccd5919df447d0ac2e5ef8461b7ce, type: 3}
+--- !u!4 &1340876243
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340876241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2076106939}
 --- !u!1 &1381434095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,3 +1107,47 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &2076106937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2076106939}
+  - 114: {fileID: 2076106938}
+  m_Layer: 0
+  m_Name: Clan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2076106938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076106937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: badb7753b60bb46a4b17809b6c46b064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clanMembers: []
+  clanName: FKBOI's
+  currentQuests: []
+  completedQuests: []
+--- !u!4 &2076106939
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076106937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1340876243}
+  - {fileID: 1005275430}
+  m_Father: {fileID: 0}

@@ -48,9 +48,13 @@
   <ItemGroup>
      <Compile Include="Assets\Character.cs" />
      <Compile Include="Assets\CharacterGUI.cs" />
+     <Compile Include="Assets\Clan.cs" />
      <Compile Include="Assets\ClanGUI.cs" />
      <Compile Include="Assets\Cosmos.cs" />
+     <Compile Include="Assets\Job.cs" />
+     <Compile Include="Assets\Level.cs" />
      <Compile Include="Assets\Place.cs" />
+     <Compile Include="Assets\Quest.cs" />
      <Compile Include="Assets\Server.cs" />
      <Compile Include="Assets\characterLerp.cs" />
      <Compile Include="Assets\faceMover.cs" />
