@@ -377,6 +377,76 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &289831769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 289831771}
+  - 114: {fileID: 289831770}
+  m_Layer: 0
+  m_Name: SquireJob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &289831770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289831769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b9102311ff43d7bb08a37d1b56714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Squire
+  prereqJob: {fileID: 0}
+  prereqLevel: 0
+  prereqQuest: {fileID: 0}
+--- !u!4 &289831771
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289831769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 312412768}
+--- !u!1 &312412767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 312412768}
+  m_Layer: 0
+  m_Name: AllJobs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &312412768
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 312412767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.3733292, y: -.75557816, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1841133704}
+  - {fileID: 289831771}
+  m_Father: {fileID: 0}
 --- !u!1 &605623870
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,9 +707,15 @@ MonoBehaviour:
   parchTexture: {fileID: 2800000, guid: 23717747e4f954a129d4ebcd11ed1fbb, type: 3}
   guiCam: {fileID: 1023118034}
   charShown: {fileID: 0}
-  offset: .0250000004
   sisterGUI: {fileID: 768307434}
   guiFont: {fileID: 12800000, guid: 916dcdd05e7c7478a8c5d29fa445b208, type: 3}
+  hp: {fileID: 2800000, guid: dd4db396c26ea47d39fbd6094ab51e4f, type: 3}
+  mn: {fileID: 2800000, guid: 051adc825145a42689982460d122b2ed, type: 3}
+  ad: {fileID: 2800000, guid: 428ad6bf4ca4c4bf08e7dd8689d14776, type: 3}
+  armor: {fileID: 2800000, guid: 2114698d1f8a94f0e84c90c506d63310, type: 3}
+  mag: {fileID: 2800000, guid: 4111ef4f798194cca8872a4826d551f5, type: 3}
+  mr: {fileID: 2800000, guid: bf5c98f926c5f4b418a67de25f985a60, type: 3}
+  spd: {fileID: 2800000, guid: 8777ed7ec8bd44908a71c62fdf226926, type: 3}
 --- !u!4 &984586501
 Transform:
   m_ObjectHideFlags: 0
@@ -690,12 +766,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: Lulu
-  jobName: Bitchbitch
-  jobObject: {fileID: 0}
-  curLevel: 3
-  lvlObject: {fileID: 0}
+  jobObject: {fileID: 1841133703}
   portrait: {fileID: 2800000, guid: 3b8f8424108394b6eb453e2cfcd8950f, type: 3}
   icon: {fileID: 2800000, guid: d870a0bddc05f436cad534247eb73a60, type: 3}
+  currentLevel: 0
+  currentXP: 0
+  nextLevelXP: 100
+  xpLvlDiff: 30
 --- !u!1 &1023118029
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,12 +1038,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: Draven
-  jobName: Faggotmancer
-  jobObject: {fileID: 0}
-  curLevel: 1
-  lvlObject: {fileID: 0}
+  jobObject: {fileID: 289831770}
   portrait: {fileID: 2800000, guid: aab097ede914e416da3712a5f2636dfd, type: 3}
   icon: {fileID: 2800000, guid: d22ccd5919df447d0ac2e5ef8461b7ce, type: 3}
+  currentLevel: 0
+  currentXP: 0
+  nextLevelXP: 100
+  xpLvlDiff: 30
 --- !u!4 &1340876243
 Transform:
   m_ObjectHideFlags: 0
@@ -1107,6 +1185,48 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1841133702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1841133704}
+  - 114: {fileID: 1841133703}
+  m_Layer: 0
+  m_Name: InitiateJob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1841133703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841133702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b9102311ff43d7bb08a37d1b56714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Initiate
+  prereqJob: {fileID: 0}
+  prereqLevel: 0
+  prereqQuest: {fileID: 0}
+--- !u!4 &1841133704
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841133702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 312412768}
 --- !u!1 &2076106937
 GameObject:
   m_ObjectHideFlags: 0

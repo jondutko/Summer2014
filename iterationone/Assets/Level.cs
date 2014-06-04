@@ -7,12 +7,7 @@ public class Level : MonoBehaviour {
 	public int nextLevelXP = 100;
 	public int xpLvlDiff = 30;
 
-	public Level(){
-		currentLevel = 1;
-		currentXP = 0;
-	}
-
-	public Level(int lvl){
+	public void initializeLevel(int lvl) {
 		currentLevel = 1;
 		for(int i = 1; i < lvl; i++)
 			LevelUp();

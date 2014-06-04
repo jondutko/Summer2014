@@ -17,8 +17,13 @@ public class Clan : MonoBehaviour {
 	}
 
 	public void initializeClan() {
-		foreach (Transform child in transform)
-			clanMembers.Add(child.GetComponent<Character>());
+		foreach (Transform child in transform) {
+			Character curChar = child.GetComponent<Character> ();
+			curChar.initializeCharacter(1, 100, 80, 30, 25, 30, 28, 6);
+			clanMembers.Add (curChar);
+		}
+
+
 	}
 	
 	// Update is called once per frame

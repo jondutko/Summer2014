@@ -4,19 +4,15 @@ using System.Collections;
 public class Job : MonoBehaviour {
 
 	public string title;
-	public struct Prerequisite {
-		public Job prereqJob;
-		public int prereqLevel;
-		public Quest prereqQuest;
-	}
+	public Job prereqJob;
+	public int prereqLevel;
+	public Quest prereqQuest;
 
-	public Prerequisite prereq;
-
-	public Job (string newTitle){
+	public void initializeJob (string newTitle){
 			title = newTitle;
-			prereq.prereqJob = null;
-			prereq.prereqLevel = 0;
-			prereq.prereqQuest = null;
+			prereqJob = null;
+			prereqLevel = 0;
+			prereqQuest = null;
 	}
 
 	// Use this for initialization
