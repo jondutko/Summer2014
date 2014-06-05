@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Server : MonoBehaviour {
 
 	public Place[] placeList;
-	private float smooth = 10;
 	private faceMover spriteToMove;
 	public Camera ourCam;
 	public bool moving = false, traversePath = false;
@@ -62,7 +61,6 @@ public class Server : MonoBehaviour {
 			targetPlace = currentPlace;
 			Vector3 mouseLoc = ourCam.ScreenToWorldPoint (Input.mousePosition);
 			mouseLoc.z = 0f;
-			Debug.Log (mouseLoc);
 			for (int i = 0; i < placeList.Length; i++){
 				if (placeList[i].collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))){
 					pathMove(placeList[i]);

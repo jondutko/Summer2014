@@ -7,8 +7,8 @@ public class Character : MonoBehaviour {
 	public Dictionary<string, int> stats;
 	public string charName;
 	public Job jobObject;
-	public Texture portrait;
-	public Texture icon;
+	public Sprite portrait;
+	public Sprite icon;
 	public int currentLevel, currentXP;
 	public int nextLevelXP;
 	public int xpLvlDiff;
@@ -27,8 +27,6 @@ public class Character : MonoBehaviour {
 		xpLvlDiff = 30;
 		InitializeLevel (lvl);
 		equipList = new Equipment[6];
-		//for(int i = 0; i<equipList.Length; i++)
-		//	equipList[i] = null;
 	}
 
 	public void AddXP(int xp){
