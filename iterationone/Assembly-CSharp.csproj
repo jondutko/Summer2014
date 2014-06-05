@@ -51,6 +51,7 @@
      <Compile Include="Assets\Clan.cs" />
      <Compile Include="Assets\ClanGUI.cs" />
      <Compile Include="Assets\Cosmos.cs" />
+     <Compile Include="Assets\Equipment.cs" />
      <Compile Include="Assets\Job.cs" />
      <Compile Include="Assets\Level.cs" />
      <Compile Include="Assets\Place.cs" />

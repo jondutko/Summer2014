@@ -39,13 +39,13 @@ public class CharacterGUI : MonoBehaviour {
 		boxStyle.padding = new RectOffset(5, 5, 5, 5);
 		GUI.Box(newBox(0, 0, 1, 0.5f), parchTexture, boxStyle);
 
+		// portrait
+		GUI.Label (newBox (offset, offset, offset + 0.2f, offset + 0.4f), charShown.portrait);
+		
+		// blank the faggotmancer
+		GUI.Label (newBox (offset + 0.22f, offset + .01f, 0.8f, offset + 0.05f), charShown.charName + ", the " + charShown.jobObject.title, wordsStyle);
+
 		if (currentDisplay == typeDisplaying.character) {
-
-			// portrait
-			GUI.Label (newBox (offset, offset, offset + 0.2f, offset + 0.4f), charShown.portrait);
-
-			// blank the faggotmancer
-			GUI.Label (newBox (offset + 0.22f, offset + .01f, 0.8f, offset + 0.05f), charShown.charName + ", the " + charShown.jobObject.title, wordsStyle);
 
 			// attributes (ie hp, mana, armor, etc
 			// hp
@@ -79,7 +79,11 @@ public class CharacterGUI : MonoBehaviour {
 			// level
 			GUI.Label (newBox (offset + 0.025f, offset + 5.5f * rowOffset, offset + 0.15f, offset + 5.5f * rowOffset + iconWidth), "Level: " + charShown.currentLevel, boldStyle);	
 			EditorGUI.ProgressBar (newBox (offset + 0.2f, offset + 5.5f * rowOffset + 0.0015f, offset + 0.7f, offset + 5.5f * rowOffset + iconWidth - 0.02f), charShown.currentXP / ((float)charShown.nextLevelXP), "XP");
-		} else if (currentDisplay == typeDisplaying.equipment) {
+		} 
+		else if (currentDisplay == typeDisplaying.equipment) {
+			
+		
+
 
 		} else if (currentDisplay == typeDisplaying.job) {
 

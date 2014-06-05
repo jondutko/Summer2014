@@ -4,16 +4,18 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour {
 
-	public Dictionary<string, int> stats = new Dictionary<string, int>();
+	public Dictionary<string, int> stats;
 	public string charName;
 	public Job jobObject;
 	public Texture portrait;
 	public Texture icon;
 	public int currentLevel, currentXP;
-	public int nextLevelXP = 100;
-	public int xpLvlDiff = 30;
+	public int nextLevelXP;
+	public int xpLvlDiff;
+	public Equipment[] equipList;
 
 	public void initializeCharacter(int lvl, int health, int mana, int strength, int wisdom, int physRes, int magRes, int speed){
+		stats = new Dictionary<string, int>();
 		stats.Add ("Health", health);
 		stats.Add ("Mana", mana);
 		stats.Add ("Strength", strength);
@@ -21,10 +23,15 @@ public class Character : MonoBehaviour {
 		stats.Add ("Physical Resistance", physRes);
 		stats.Add ("Magical Resistance", magRes);
 		stats.Add ("Speed", speed);
-		initializeLevel (lvl);
+		nextLevelXP = 100;
+		xpLvlDiff = 30;
+		InitializeLevel (lvl);
+		equipList = new Equipment[6];
+		//for(int i = 0; i<equipList.Length; i++)
+		//	equipList[i] = null;
 	}
 
-	public void addXP(int xp){
+	public void AddXP(int xp){
 		currentXP += xp;
 		while (currentXP >= nextLevelXP) {
 			currentXP -= nextLevelXP;
@@ -39,11 +46,24 @@ public class Character : MonoBehaviour {
 		//fuckboi industreez
 	}
 
-	public void initializeLevel(int lvl) {
+	public void InitializeLevel(int lvl) {
 		currentLevel = 1;
 		for(int i = 1; i < lvl; i++)
 			LevelUp();
 		currentXP = 0;
+	}
+	
+	public void Equip(Equipment toEquip, int slot) {
+		if(equipList[slot]==null)
+			equipList[slot] = toEquip;
+		else
+			Debug.Log ("Character class dire straits");
+	}
+	
+	public Equipment unEquip(int slot) {
+		Equipment equipToReturn = equipList[slot];
+		equipList[slot] = null;
+		return equipToReturn;
 	}
 
 	// Use this for initialization

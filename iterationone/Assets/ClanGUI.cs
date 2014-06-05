@@ -10,6 +10,8 @@ public class ClanGUI : MonoBehaviour {
 	public CharacterGUI sisterGui;
 	private float offset = 0.025f;
 	private float numPerLine = 10.0f;
+	private int activeIcon = 0;
+	public Texture activeTexture;
 
 	void Start(){
 		theClan.initializeClan ();
@@ -18,12 +20,13 @@ public class ClanGUI : MonoBehaviour {
 
 	void OnGUI() {
 		createClanGUI ();
-
 	}
 
 	public void setInitialCharacter() {
 		if (theClan.clanMembers.Count != 0)
 			setCurrentCharacter (theClan.clanMembers [0]);
+		else
+			Debug.Log ("Empty Clan!");
 	}
 
 	void setCurrentCharacter(Character clicked){
@@ -40,6 +43,7 @@ public class ClanGUI : MonoBehaviour {
 		for (int i = 0; i < theClan.clanMembers.Count; i++) {
 			if(GUI.Button(newBox ((offset * (i+1)) + i/(numPerLine), .50f + offset, (offset * (i+1)) + (i+1)/(numPerLine), .50f+offset+(1/numPerLine)), theClan.clanMembers[i].icon, iconStyle)){
 				setCurrentCharacter(theClan.clanMembers[i]);
+				activeIcon = i;
 			}
 		}
 	}
