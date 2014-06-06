@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class CharacterGUI : MonoBehaviour {
 
-	public Texture parchTexture;
+	public Texture parchTexture, cButtonU, cButtonA, eButtonU, eButtonA, jButtonU, jButtonA;
 	public Camera guiCam;
 	public Character charShown;
 	private float offset = 0.025f, iconWidth = 0.05f, columnRightOffset = 0.2f, rowOffset = 0.075f;
@@ -93,17 +93,17 @@ public class CharacterGUI : MonoBehaviour {
 		// Active button - Character sheet
 		boldStyle.wordWrap = true;
 		boldStyle.alignment = TextAnchor.MiddleCenter;
-		if(GUI.Button (newBox (0.75f, 2*offset, 1.0f - offset, 2*offset + 0.1f), "Character", boldStyle))
+		if(GUI.Button (newBox (0.6f, offset, 1, offset + 0.05f), cButtonU, boldStyle))
 			currentDisplay = typeDisplaying.character;
 
 		// equipment
-		if(GUI.Button (newBox (0.75f, 2*offset+0.15f, 1.0f - offset, 2*offset + 0.25f), "Equipment", boldStyle)){
+		if(GUI.Button (newBox (0.6f, offset+0.05f, 1, offset + 0.1f), eButtonU, boldStyle)){
 			currentDisplay = typeDisplaying.equipment;
 			Debug.Log(currentDisplay.ToString());
 		}
 
 		// job
-		if(GUI.Button (newBox (0.75f, 2*offset+0.3f, 1.0f - offset, 2*offset + 0.4f), "Job", boldStyle))
+		if(GUI.Button (newBox (0.6f, offset+0.1f, 1, offset + 0.15f), jButtonU, boldStyle))
 			currentDisplay = typeDisplaying.job;
 	
 	}

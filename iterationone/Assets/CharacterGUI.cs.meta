@@ -2,7 +2,19 @@ fileFormatVersion: 2
 guid: 30380d213a2fa437298557ef4c761fd4
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - parchTexture: {instanceID: 0}
+  - guiCam: {instanceID: 0}
+  - charShown: {instanceID: 0}
+  - sisterGUI: {instanceID: 0}
+  - guiFont: {instanceID: 0}
+  - hp: {fileID: 2800000, guid: dd4db396c26ea47d39fbd6094ab51e4f, type: 3}
+  - mn: {fileID: 2800000, guid: 051adc825145a42689982460d122b2ed, type: 3}
+  - ad: {fileID: 2800000, guid: 428ad6bf4ca4c4bf08e7dd8689d14776, type: 3}
+  - armor: {fileID: 2800000, guid: 2114698d1f8a94f0e84c90c506d63310, type: 3}
+  - mag: {fileID: 2800000, guid: 9a82d45fe1078f74896d9394691779d7, type: 3}
+  - mr: {fileID: 2800000, guid: b9b6b4f7b3822fb4ca3b12cfa2e45665, type: 3}
+  - spd: {fileID: 2800000, guid: 9fc9cedad70225840b4d31ea7b9df0bc, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
