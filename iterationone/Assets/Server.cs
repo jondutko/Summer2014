@@ -11,6 +11,7 @@ public class Server : MonoBehaviour {
 	public Place currentPlace;
 	public Place targetPlace;
 	public List<Place> placePath;
+	public Clan theClan;
 
 	public int countMAX = 0;
 
@@ -18,7 +19,7 @@ public class Server : MonoBehaviour {
 	void Start () {
 		GameObject target = GameObject.Find("FirstSprite");
 		spriteToMove = target.GetComponent<faceMover>();
-
+		theClan.initializeClan();
 		placeList = new Place[transform.childCount];
 		int i = 0;
 		foreach (Transform child in transform) {

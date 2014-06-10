@@ -57,8 +57,10 @@
      <Compile Include="Assets\Level.cs" />
      <Compile Include="Assets\MenuIcon.cs" />
      <Compile Include="Assets\Place.cs" />
+     <Compile Include="Assets\PopupGUI.cs" />
      <Compile Include="Assets\Quest.cs" />
      <Compile Include="Assets\Server.cs" />
+     <Compile Include="Assets\StatTextures.cs" />
      <Compile Include="Assets\faceMover.cs" />
      <Compile Include="Assets\mouseClick.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
