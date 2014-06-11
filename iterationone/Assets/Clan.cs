@@ -9,7 +9,7 @@ public class Clan : MonoBehaviour
 		public string clanName;
 		public List<Quest> currentQuests;
 		public List<Quest> completedQuests;
-		public Dictionary<Equipment, int> unusedEquipment;
+		public List<Equipment> unusedEquipment;
 
 		// Use this for initialization
 		void Start ()
@@ -23,7 +23,7 @@ public class Clan : MonoBehaviour
 			clanMembers = new List<Character> ();
 			currentQuests = new List<Quest> ();
 			completedQuests = new List<Quest> ();
-			unusedEquipment = new Dictionary<Equipment, int> ();
+			unusedEquipment = new List<Equipment> ();
 			foreach (Transform child in transform) {
 				Character curChar = child.GetComponent<Character> ();
 				curChar.initializeCharacter (1, 100, 80, 30, 25, 30, 28, 6);
@@ -40,28 +40,15 @@ public class Clan : MonoBehaviour
 
 		public void addEquipment (Equipment equip)
 		{
-			if (unusedEquipment.ContainsKey (equip))
-				unusedEquipment [equip]++;
-			else
-				unusedEquipment [equip] = 1;
+			unusedEquipment.Add (equip);
 		}
 
 		public Equipment delEquipment (Equipment equip)
 		{
-			if (unusedEquipment.ContainsKey (equip)) {
-				if (unusedEquipment [equip] > 1)
-						unusedEquipment [equip]--;
-				else if (unusedEquipment [equip] == 1)
-						unusedEquipment.Remove (equip);
-				else {
-						Debug.Log ("Dire Straits");
-						return null;
-				}
-				return equip;
-			} 
-			else {
-				Debug.Log ("More Dire Straits");
+			if (unusedEquipment.Contains(equip))
+				unusedEquipment.Remove (equip);
+			else
 				return null;
-			}
+			return equip;
 		}
 }

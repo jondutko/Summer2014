@@ -377,6 +377,53 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &202283680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 202283681}
+  - 114: {fileID: 202283682}
+  m_Layer: 0
+  m_Name: HealthAmulet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &202283681
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 202283680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387194846}
+--- !u!114 &202283682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 202283680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae62790fc3644a6a93967490a5de963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipName: Health Amulet
+  image: {fileID: 0}
+  healthModifier: 20
+  manaModifier: 0
+  ADModifier: 0
+  APModifier: 0
+  armorModifier: 0
+  MRModifier: 0
+  speedModifier: 0
 --- !u!1 &289831769
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +539,86 @@ Transform:
   - {fileID: 1841133704}
   - {fileID: 289831771}
   m_Father: {fileID: 0}
+--- !u!1 &387194845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 387194846}
+  m_Layer: 0
+  m_Name: AllEquipment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &387194846
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 387194845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1346227029}
+  - {fileID: 852998395}
+  - {fileID: 202283681}
+  - {fileID: 1473356606}
+  - {fileID: 1927625761}
+  - {fileID: 668789562}
+  - {fileID: 403404206}
+  m_Father: {fileID: 0}
+--- !u!1 &403404205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403404206}
+  - 114: {fileID: 403404207}
+  m_Layer: 0
+  m_Name: WizardStaff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &403404206
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403404205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387194846}
+--- !u!114 &403404207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403404205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae62790fc3644a6a93967490a5de963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipName: Wizard Staff
+  image: {fileID: 0}
+  healthModifier: 0
+  manaModifier: 0
+  ADModifier: 0
+  APModifier: 5
+  armorModifier: 0
+  MRModifier: 0
+  speedModifier: 0
 --- !u!1 &598938389
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +783,53 @@ Transform:
   m_LocalScale: {x: .0399999991, y: .0399999991, z: .0399999991}
   m_Children: []
   m_Father: {fileID: 1117245050}
+--- !u!1 &668789561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 668789562}
+  - 114: {fileID: 668789563}
+  m_Layer: 0
+  m_Name: WingedBoots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &668789562
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668789561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387194846}
+--- !u!114 &668789563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668789561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae62790fc3644a6a93967490a5de963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipName: Winged Boots
+  image: {fileID: 0}
+  healthModifier: 0
+  manaModifier: 0
+  ADModifier: 0
+  APModifier: 0
+  armorModifier: 0
+  MRModifier: 0
+  speedModifier: 2
 --- !u!1 &680349462
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +909,53 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &852998394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 852998395}
+  - 114: {fileID: 852998396}
+  m_Layer: 0
+  m_Name: ClothRobe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &852998395
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852998394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387194846}
+--- !u!114 &852998396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852998394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae62790fc3644a6a93967490a5de963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipName: Cloth Robe
+  image: {fileID: 0}
+  healthModifier: 0
+  manaModifier: 0
+  ADModifier: 0
+  APModifier: 0
+  armorModifier: 0
+  MRModifier: 5
+  speedModifier: 0
 --- !u!1 &1023118029
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +1072,7 @@ MonoBehaviour:
   nextLevelXP: 100
   xpLvlDiff: 30
   equipList: []
+  numItemSlots: 6
 --- !u!4 &1090857663
 Transform:
   m_ObjectHideFlags: 0
@@ -1140,6 +1362,7 @@ MonoBehaviour:
   nextLevelXP: 100
   xpLvlDiff: 30
   equipList: []
+  numItemSlots: 6
 --- !u!4 &1340876243
 Transform:
   m_ObjectHideFlags: 0
@@ -1151,6 +1374,53 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2076106939}
+--- !u!1 &1346227027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1346227029}
+  - 114: {fileID: 1346227028}
+  m_Layer: 0
+  m_Name: ChainVest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1346227028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1346227027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae62790fc3644a6a93967490a5de963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipName: Chain Vest
+  image: {fileID: 0}
+  healthModifier: 0
+  manaModifier: 0
+  ADModifier: 0
+  APModifier: 0
+  armorModifier: 5
+  MRModifier: 0
+  speedModifier: 0
+--- !u!4 &1346227029
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1346227027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387194846}
 --- !u!1 &1381434095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1550,53 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1473356605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1473356606}
+  - 114: {fileID: 1473356607}
+  m_Layer: 0
+  m_Name: LongSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1473356606
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473356605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387194846}
+--- !u!114 &1473356607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473356605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae62790fc3644a6a93967490a5de963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipName: Long Sword
+  image: {fileID: 0}
+  healthModifier: 0
+  manaModifier: 0
+  ADModifier: 5
+  APModifier: 0
+  armorModifier: 0
+  MRModifier: 0
+  speedModifier: 0
 --- !u!1 &1714228312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1704,53 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 312412768}
+--- !u!1 &1927625760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1927625761}
+  - 114: {fileID: 1927625762}
+  m_Layer: 0
+  m_Name: ManaAmulet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1927625761
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1927625760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 387194846}
+--- !u!114 &1927625762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1927625760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae62790fc3644a6a93967490a5de963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipName: Mana Amulet
+  image: {fileID: 0}
+  healthModifier: 0
+  manaModifier: 20
+  ADModifier: 0
+  APModifier: 0
+  armorModifier: 0
+  MRModifier: 0
+  speedModifier: 0
 --- !u!1 &2076106937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1782,14 @@ MonoBehaviour:
   clanName: FKBOI's
   currentQuests: []
   completedQuests: []
+  unusedEquipment:
+  - {fileID: 202283682}
+  - {fileID: 1927625762}
+  - {fileID: 1473356607}
+  - {fileID: 403404207}
+  - {fileID: 1346227028}
+  - {fileID: 852998396}
+  - {fileID: 668789563}
 --- !u!4 &2076106939
 Transform:
   m_ObjectHideFlags: 0
