@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour {
 
-	public Dictionary<string, int> stats;
+	public Dictionary<StatTextures.Stat, int> stats;
 	public string charName;
 	public Job jobObject;
 	public Sprite portrait;
@@ -13,20 +13,21 @@ public class Character : MonoBehaviour {
 	public int nextLevelXP;
 	public int xpLvlDiff;
 	public Equipment[] equipList;
+	public int numItemSlots = 6;
 
 	public void initializeCharacter(int lvl, int health, int mana, int strength, int wisdom, int physRes, int magRes, int speed){
-		stats = new Dictionary<string, int>();
-		stats.Add ("Health", health);
-		stats.Add ("Mana", mana);
-		stats.Add ("Strength", strength);
-		stats.Add ("Wisdom", wisdom);
-		stats.Add ("Physical Resistance", physRes);
-		stats.Add ("Magical Resistance", magRes);
-		stats.Add ("Speed", speed);
+		stats = new Dictionary<StatTextures.Stat, int>();
+		stats.Add (StatTextures.Stat.Health, health);
+		stats.Add (StatTextures.Stat.Mana, mana);
+		stats.Add (StatTextures.Stat.AD, strength);
+		stats.Add (StatTextures.Stat.AP, wisdom);
+		stats.Add (StatTextures.Stat.Armor, physRes);
+		stats.Add (StatTextures.Stat.MR, magRes);
+		stats.Add (StatTextures.Stat.Speed, speed);
 		nextLevelXP = 100;
 		xpLvlDiff = 30;
 		InitializeLevel (lvl);
-		equipList = new Equipment[6];
+		equipList = new Equipment[numItemSlots];
 	}
 
 	public void AddXP(int xp){
