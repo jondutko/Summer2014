@@ -155,6 +155,38 @@ Transform:
   m_LocalScale: {x: .0399998315, y: .0399998315, z: .0399998315}
   m_Children: []
   m_Father: {fileID: 1117245050}
+--- !u!1 &56064187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 56064188}
+  m_Layer: 0
+  m_Name: AllAbilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &56064188
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56064187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1272289142}
+  - {fileID: 572536025}
+  - {fileID: 1155500322}
+  - {fileID: 572790392}
+  - {fileID: 1168729392}
+  - {fileID: 445256328}
+  m_Father: {fileID: 0}
 --- !u!1 &102638530
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +486,10 @@ MonoBehaviour:
   title: Squire
   prereqJob: {fileID: 0}
   prereqLevel: 0
-  prereqQuest: {fileID: 0}
+  skills:
+  - {fileID: 1272289141}
+  - {fileID: 572790391}
+  - {fileID: 1168729391}
 --- !u!4 &289831771
 Transform:
   m_ObjectHideFlags: 0
@@ -619,6 +654,132 @@ MonoBehaviour:
   armorModifier: 0
   MRModifier: 0
   speedModifier: 0
+--- !u!1 &445256327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445256328}
+  - 114: {fileID: 445256329}
+  m_Layer: 0
+  m_Name: abil.Wish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445256328
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 445256327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 56064188}
+--- !u!114 &445256329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 445256327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilName: Wish
+  abilDescription: Heal adjacent units for a small amount. Healed units gain RESISTANCE
+    for one turn.
+  abilCost: 60
+--- !u!1 &572536024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 572536025}
+  - 114: {fileID: 572536026}
+  m_Layer: 0
+  m_Name: abil.Flare
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &572536025
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572536024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 56064188}
+--- !u!114 &572536026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572536024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilName: Flare
+  abilDescription: Do a small amount of magic damage to an opponent at range. Chance
+    to inflict a BURN.
+  abilCost: 100
+--- !u!1 &572790390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 572790392}
+  - 114: {fileID: 572790391}
+  m_Layer: 0
+  m_Name: abil.GuardUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &572790391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572790390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilName: Guard Up
+  abilDescription: Increase your ARMOR and the ARMOR of an ally behind you for one
+    turn.
+  abilCost: 75
+--- !u!4 &572790392
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572790390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 56064188}
 --- !u!1 &598938389
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +853,12 @@ MonoBehaviour:
     y: 20
     width: 120
     height: 50
+  secondWindowRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
 --- !u!61 &598938393
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1063,6 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2803725ae143a795e47b396c3da4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clan: {fileID: 2076106938}
   charName: Xin Zhao
   jobObject: {fileID: 1841133703}
   portrait: {fileID: 21300000, guid: 5196329869dfd4c5b8e4ef06a900f696, type: 3}
@@ -1071,7 +1239,13 @@ MonoBehaviour:
   currentXP: 0
   nextLevelXP: 100
   xpLvlDiff: 30
-  equipList: []
+  equipList:
+  - {fileID: 1473356607}
+  - {fileID: 1927625762}
+  - {fileID: 668789563}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   numItemSlots: 6
 --- !u!4 &1090857663
 Transform:
@@ -1161,6 +1335,90 @@ MonoBehaviour:
   placePath: []
   theClan: {fileID: 2076106938}
   countMAX: 0
+--- !u!1 &1155500321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1155500322}
+  - 114: {fileID: 1155500323}
+  m_Layer: 0
+  m_Name: abil.Force
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155500322
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155500321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 56064188}
+--- !u!114 &1155500323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155500321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilName: Force
+  abilDescription: Do a small amount of magic damage to an adjacent opponent and knock
+    them back.
+  abilCost: 75
+--- !u!1 &1168729390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1168729392}
+  - 114: {fileID: 1168729391}
+  m_Layer: 0
+  m_Name: abil.Taunt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1168729391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168729390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilName: Taunt
+  abilDescription: Lower an adjacent enemy's ARMOR for one turn. Make them attack
+    you next turn.
+  abilCost: 50
+--- !u!4 &1168729392
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168729390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 56064188}
 --- !u!1 &1170939146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1550,12 @@ MonoBehaviour:
     y: 20
     width: 120
     height: 50
+  secondWindowRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
 --- !u!212 &1198092946
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1326,6 +1590,47 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 5, y: 5}
   m_Center: {x: 0, y: 0}
+--- !u!1 &1272289140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1272289142}
+  - 114: {fileID: 1272289141}
+  m_Layer: 0
+  m_Name: abil.Bash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1272289141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1272289140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilName: Bash
+  abilDescription: Attack an adjacent enemy. Lower their SPEED for one turn.
+  abilCost: 100
+--- !u!4 &1272289142
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1272289140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 56064188}
 --- !u!1 &1340876241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2803725ae143a795e47b396c3da4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clan: {fileID: 2076106938}
   charName: Draven
   jobObject: {fileID: 289831770}
   portrait: {fileID: 21300000, guid: aab097ede914e416da3712a5f2636dfd, type: 3}
@@ -1361,7 +1667,13 @@ MonoBehaviour:
   currentXP: 0
   nextLevelXP: 100
   xpLvlDiff: 30
-  equipList: []
+  equipList:
+  - {fileID: 1346227028}
+  - {fileID: 852998396}
+  - {fileID: 202283682}
+  - {fileID: 403404207}
+  - {fileID: 0}
+  - {fileID: 0}
   numItemSlots: 6
 --- !u!4 &1340876243
 Transform:
@@ -1692,7 +2004,10 @@ MonoBehaviour:
   title: Initiate
   prereqJob: {fileID: 0}
   prereqLevel: 0
-  prereqQuest: {fileID: 0}
+  skills:
+  - {fileID: 572536026}
+  - {fileID: 1155500323}
+  - {fileID: 445256329}
 --- !u!4 &1841133704
 Transform:
   m_ObjectHideFlags: 0
@@ -1778,7 +2093,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: badb7753b60bb46a4b17809b6c46b064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clanMembers: []
+  clanMembers:
+  - {fileID: 1340876242}
+  - {fileID: 1090857662}
   clanName: FKBOI's
   currentQuests: []
   completedQuests: []

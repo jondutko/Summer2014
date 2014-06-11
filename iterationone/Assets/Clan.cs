@@ -20,10 +20,14 @@ public class Clan : MonoBehaviour
 
 		public void initializeClan ()
 		{
-			clanMembers = new List<Character> ();
-			currentQuests = new List<Quest> ();
-			completedQuests = new List<Quest> ();
-			unusedEquipment = new List<Equipment> ();
+			if (clanMembers == null)
+				clanMembers = new List<Character> ();
+			if (currentQuests == null)
+				currentQuests = new List<Quest> ();
+			if (completedQuests == null)
+				completedQuests = new List<Quest> ();
+			if (unusedEquipment == null)
+				unusedEquipment = new List<Equipment> ();
 			foreach (Transform child in transform) {
 				Character curChar = child.GetComponent<Character> ();
 				curChar.initializeCharacter (1, 100, 80, 30, 25, 30, 28, 6);
