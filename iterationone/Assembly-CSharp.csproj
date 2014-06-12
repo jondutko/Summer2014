@@ -50,6 +50,11 @@
      <Compile Include="Assets\Character.cs" />
      <Compile Include="Assets\CharacterIcon.cs" />
      <Compile Include="Assets\Clan.cs" />
+     <Compile Include="Assets\CombatAsset.cs" />
+     <Compile Include="Assets\CombatAssets.cs" />
+     <Compile Include="Assets\CombatCharacter.cs" />
+     <Compile Include="Assets\CombatListener.cs" />
+     <Compile Include="Assets\CombatSquare.cs" />
      <Compile Include="Assets\Cosmos.cs" />
      <Compile Include="Assets\Equipment.cs" />
      <Compile Include="Assets\GUIListener.cs" />
@@ -61,9 +66,9 @@
      <Compile Include="Assets\PopupGUI.cs" />
      <Compile Include="Assets\Quest.cs" />
      <Compile Include="Assets\Server.cs" />
+     <Compile Include="Assets\SquareIcon.cs" />
      <Compile Include="Assets\StatTextures.cs" />
      <Compile Include="Assets\faceMover.cs" />
-     <Compile Include="Assets\mouseClick.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />

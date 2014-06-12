@@ -8,7 +8,6 @@ public class GUIListener : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
 		iconList = new Icon[transform.childCount];
 		int i = 0;
 		foreach (Transform child in transform) {

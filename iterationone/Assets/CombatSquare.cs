@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class mouseClick : MonoBehaviour {
+public class CombatSquare : MonoBehaviour {
 
-	
+	public Texture2D squareImage;
 
 	// Use this for initialization
 	void Start () {
