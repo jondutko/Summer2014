@@ -52,6 +52,7 @@
      <Compile Include="Assets\Clan.cs" />
      <Compile Include="Assets\CombatAsset.cs" />
      <Compile Include="Assets\CombatAssets.cs" />
+     <Compile Include="Assets\CombatBoard.cs" />
      <Compile Include="Assets\CombatCharacter.cs" />
      <Compile Include="Assets\CombatListener.cs" />
      <Compile Include="Assets\CombatSquare.cs" />
@@ -68,6 +69,7 @@
      <Compile Include="Assets\Server.cs" />
      <Compile Include="Assets\SquareIcon.cs" />
      <Compile Include="Assets\StatTextures.cs" />
+     <Compile Include="Assets\TurnOrder.cs" />
      <Compile Include="Assets\faceMover.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />

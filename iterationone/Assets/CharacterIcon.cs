@@ -16,7 +16,6 @@ public class CharacterIcon : Icon
 	private WindowView windowView = WindowView.character;
 	private bool displayingEquipDialog = false;
 	private int equipDialogSlot = -1;
-	private int chosenClanEquipment = -1;
 	//float offset = 0.5f;
 	//float rowOffset = 0.5f;
 	//float iconWidth = 0.5f;
@@ -153,7 +152,6 @@ public class CharacterIcon : Icon
 		if(Popup.List(new Rect(20, 50, 200, 200), ref showing, ref selection, guiContent, assChar.clan.unusedEquipment.ToArray(), listStyle, nothing)) {
 			if(selection!=-1) {
 				Debug.Log (selection);
-				chosenClanEquipment = selection;
 				displayingEquipDialog = false;
 				if(assChar.equipList[equipDialogSlot] != null) {
 					Equipment equip = assChar.unEquip (equipDialogSlot);

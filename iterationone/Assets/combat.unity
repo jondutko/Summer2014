@@ -115,6 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f336c77067f4bb9919692589fff90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatAssets:
+  - {fileID: 1397678812}
+  - {fileID: 970430852}
 --- !u!1 &970430850
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +276,8 @@ GameObject:
   - 124: {fileID: 1368607751}
   - 81: {fileID: 1368607750}
   - 114: {fileID: 1368607755}
+  - 114: {fileID: 1368607757}
+  - 114: {fileID: 1368607756}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -352,12 +357,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fba3774937704ba1b5379ed23358382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  library: {fileID: 866704749}
-  fighters: []
   cam: {fileID: 1368607753}
+  gameBoard: {fileID: 1368607756}
+  turnOrder: {fileID: 1368607757}
+--- !u!114 &1368607756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368607749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3153d5e5f9b9c4eb8aa9944495f6ea30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  library: {fileID: 866704749}
   sq: {fileID: 1365225644}
   width: 12
   height: 8
+  turnOrder: {fileID: 1368607757}
+--- !u!114 &1368607757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368607749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d596e07fb4ac4ed8887a474d8764b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatListener: {fileID: 1368607755}
+  gameBoard: {fileID: 1368607756}
+  numFighters: 1
+  currentFighter: {fileID: 0}
 --- !u!1 &1397678809
 GameObject:
   m_ObjectHideFlags: 0
