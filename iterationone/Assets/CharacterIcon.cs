@@ -16,10 +16,6 @@ public class CharacterIcon : Icon
 	private WindowView windowView = WindowView.character;
 	private bool displayingEquipDialog = false;
 	private int equipDialogSlot = -1;
-	//float offset = 0.5f;
-	//float rowOffset = 0.5f;
-	//float iconWidth = 0.5f;
-	//float columnRightOffset = 0.5f;
 	
 	enum WindowView {
 		character,
@@ -27,8 +23,6 @@ public class CharacterIcon : Icon
 		job
 	};
 	
-	
-	// Use this for initialization
 	void OnGUI(){
 		if(isDrawing){
 			windowRect = GUI.Window(uniqueID, windowRect, DoMyWindow, new GUIContent(assChar.charName + ", the " + assChar.jobObject.title, assChar.charName+"'s Character Sheet"));

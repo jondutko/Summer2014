@@ -6,7 +6,8 @@ public class CombatAsset : MonoBehaviour
 
 	public int row;
 	public int col;
-
+	public bool isPassable;
+	
 		// Use this for initialization
 		void Start ()
 		{
@@ -18,5 +19,6 @@ public class CombatAsset : MonoBehaviour
 		{
 	
 		}
+
 }
 

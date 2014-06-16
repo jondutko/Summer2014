@@ -70,6 +70,7 @@
      <Compile Include="Assets\SquareIcon.cs" />
      <Compile Include="Assets\StatTextures.cs" />
      <Compile Include="Assets\TurnOrder.cs" />
+     <Compile Include="Assets\TurnOrderGUI.cs" />
      <Compile Include="Assets\faceMover.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />

@@ -143,7 +143,7 @@ Transform:
   m_GameObject: {fileID: 970430850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20, y: -20, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .600000024, y: .600000024, z: .600000024}
   m_Children: []
   m_Father: {fileID: 866704748}
 --- !u!114 &970430852
@@ -159,9 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   row: 0
   col: 0
-  startingrow: 6
-  startingcol: 5
-  display: {fileID: 0}
+  isPassable: 0
+  speed: 4
+  combatName: 
 --- !u!212 &970430853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -180,9 +180,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 393833657
   m_Sprite: {fileID: 21300000, guid: c89b0f0cd9c5545178a9c7fd12de05a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1365225642
@@ -226,9 +226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 144842ac17d264224bf1b83343e46841, type: 3}
+  turnOrder: {fileID: 1368607757}
   curChar: {fileID: 0}
   row: 0
   col: 0
+  highlightedForMove: 0
 --- !u!212 &1365225645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -275,9 +277,10 @@ GameObject:
   - 92: {fileID: 1368607752}
   - 124: {fileID: 1368607751}
   - 81: {fileID: 1368607750}
+  - 114: {fileID: 1368607756}
   - 114: {fileID: 1368607755}
   - 114: {fileID: 1368607757}
-  - 114: {fileID: 1368607756}
+  - 114: {fileID: 1368607758}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -315,7 +318,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -389,8 +392,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatListener: {fileID: 1368607755}
   gameBoard: {fileID: 1368607756}
+  move: 0
+  attack: 0
   numFighters: 1
   currentFighter: {fileID: 0}
+  turnOrderGui: {fileID: 1368607758}
+--- !u!114 &1368607758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368607749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e973ac343ca402eaa9d02e7002f549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDrawing: 0
+  currentFighter: {fileID: 0}
+  turnOrder: {fileID: 1368607757}
 --- !u!1 &1397678809
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   row: 0
   col: 0
-  startingrow: 1
-  startingcol: 2
-  display: {fileID: 21300000, guid: b40c27ff90cd648e2b8462d0752f15f5, type: 3}
+  isPassable: 0
+  speed: 5
+  combatName: 

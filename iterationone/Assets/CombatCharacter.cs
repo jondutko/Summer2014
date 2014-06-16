@@ -3,13 +3,12 @@ using System.Collections;
 
 public class CombatCharacter : CombatAsset {
 
-	public int startingrow, startingcol;
-	public Sprite display;
+	public int speed;
+	public string combatName;
 
 	// Use this for initialization
 	void Start () {
-		row = startingrow;
-		col = startingcol;
+
 	}
 	
 	// Update is called once per frame
@@ -17,7 +16,4 @@ public class CombatCharacter : CombatAsset {
 	
 	}
 	
-	public void Click() {
-		Debug.Log (display.ToString ());
-	}
 }

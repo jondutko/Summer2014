@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CombatBoard : MonoBehaviour {
 	
@@ -36,7 +37,23 @@ public class CombatBoard : MonoBehaviour {
 		int gobRow = 5;
 		int gobCol = 7;
 		Debug.Log ("TAYLOR");
+		gob.combatName = "Hissafiss";
 		turnOrder.addFighter(gob, gobRow, gobCol);
+		
+		CombatCharacter gob2 = (CombatCharacter) library.getAssetByName("goblin");
+		int gob2Row = 4;
+		int gob2Col = 10;
+		gob2.combatName = "Faggotmancer";
+		turnOrder.addFighter(gob2, gob2Row, gob2Col);
+		
+		CombatCharacter hero = (CombatCharacter) library.getAssetByName("hero");
+		int heroRow = 3;
+		int heroCol = 2;
+		Debug.Log ("BRANDON");
+		hero.combatName = "The Hero";
+		turnOrder.addFighter(hero, heroRow, heroCol);
+		
+		
 		turnOrder.StartTurn();
 	}
 	
@@ -45,8 +62,63 @@ public class CombatBoard : MonoBehaviour {
 		
 	}
 	
+	public void highlightMoveSquares(CombatCharacter fighter) {
+		int[,] squareDistances = new int[height, width];
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++)
+				squareDistances[i, j] = -1;
+		}
+		
+		SquareIcon curSquare = board[fighter.row, fighter.col];
+		Queue<SquareIcon> sqQueue = new Queue<SquareIcon>();
+		sqQueue.Enqueue(curSquare);
+		List<SquareIcon> neighborList;
+		squareDistances[curSquare.row, curSquare.col] = 0;
+		while(sqQueue.Count != 0) {
+			curSquare = sqQueue.Dequeue();
+
+			neighborList = getNeighbors(curSquare);
+			foreach(SquareIcon sqIcon in neighborList) {
+				if ((squareDistances[sqIcon.row, sqIcon.col] == -1) && (squareDistances[curSquare.row, curSquare.col] < fighter.speed) && (sqIcon.canPass ())) {
+					squareDistances[sqIcon.row, sqIcon.col] = squareDistances[curSquare.row, curSquare.col] + 1;
+					sqQueue.Enqueue (sqIcon);
+				}
+			}
+		}
+		
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++)
+				if ((squareDistances[i,j] != -1) && squareDistances[i,j] <= fighter.speed)
+					board[i, j].highlightForMove();
+		}
+		board[fighter.row, fighter.col].highlightForActive();
+	
+	}
+	
+	public void clearHighlightedSquares() {
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++)
+				board[i, j].unhighlight();
+		}
+		
+	}
+	
+	private List<SquareIcon> getNeighbors(SquareIcon curSquare) {
+		List<SquareIcon> neighborList = new List<SquareIcon>();
+		if((curSquare.row-1>=0) && (curSquare.row-1 < height) && (curSquare.col>0) && (curSquare.col < width))
+			neighborList.Add (board[curSquare.row-1, curSquare.col]);
+		if((curSquare.row+1>=0) && (curSquare.row+1 < height) && (curSquare.col>0) && (curSquare.col < width))
+			neighborList.Add (board[curSquare.row+1, curSquare.col]);
+		if((curSquare.row>=0) && (curSquare.row < height) && (curSquare.col-1>=0) && (curSquare.col-1 < width))
+			neighborList.Add (board[curSquare.row, curSquare.col-1]);
+		if((curSquare.row>=0) && (curSquare.row < height) && (curSquare.col+1>=0) && (curSquare.col+1 < width))
+			neighborList.Add (board[curSquare.row, curSquare.col+1]);
+		return neighborList;
+	}
+	
 	
 	public void setFighterLocation(CombatCharacter fighter, int r, int c){
+		board[fighter.row, fighter.col].curChar = null;
 		fighter.row = r;
 		fighter.col = c;
 		board[r, c].curChar = fighter;
