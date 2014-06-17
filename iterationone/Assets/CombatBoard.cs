@@ -32,6 +32,30 @@ public class CombatBoard : MonoBehaviour {
 		}
 		
 		
+		GameObject clanObj = GameObject.Find ("Clan");
+		Clan clan = clanObj.GetComponent<Clan>();
+		Debug.Log ("Found clan with members: " + clan.clanMembers.Count);
+		
+		
+		for(int i = 0; i < clan.clanMembers.Count; i++) {
+			CombatCharacter combChar = (CombatCharacter) library.getAssetByName("blankcharacter");
+			CombatCharacter newCombChar = turnOrder.addFighter (combChar, 0, i);
+			
+			newCombChar.name = clan.clanMembers[i].charName;
+			newCombChar.combatName = clan.clanMembers[i].charName;
+			newCombChar.maxHealth = clan.clanMembers[i].stats[StatTextures.Stat.Health];
+			newCombChar.curHealth = clan.clanMembers[i].stats[StatTextures.Stat.Health];
+			newCombChar.maxMana = clan.clanMembers[i].stats[StatTextures.Stat.Mana];
+			newCombChar.curMana = clan.clanMembers[i].stats[StatTextures.Stat.Mana];
+			newCombChar.ad = clan.clanMembers[i].stats[StatTextures.Stat.AD];
+			newCombChar.ap = clan.clanMembers[i].stats[StatTextures.Stat.AP];
+			newCombChar.armor = clan.clanMembers[i].stats[StatTextures.Stat.Armor];
+			newCombChar.mr = clan.clanMembers[i].stats[StatTextures.Stat.MR];
+			newCombChar.speed = clan.clanMembers[i].stats[StatTextures.Stat.Speed];
+			newCombChar.abilityList = clan.clanMembers[i].abilList;
+		}
+		
+		
 		
 		CombatCharacter gob = (CombatCharacter) library.getAssetByName("goblin");
 		int gobRow = 5;
@@ -45,13 +69,7 @@ public class CombatBoard : MonoBehaviour {
 		int gob2Col = 10;
 		gob2.combatName = "Faggotmancer";
 		turnOrder.addFighter(gob2, gob2Row, gob2Col);
-		
-		CombatCharacter hero = (CombatCharacter) library.getAssetByName("hero");
-		int heroRow = 3;
-		int heroCol = 2;
-		Debug.Log ("BRANDON");
-		hero.combatName = "The Hero";
-		turnOrder.addFighter(hero, heroRow, heroCol);
+
 		
 		
 		turnOrder.StartTurn();
@@ -95,6 +113,45 @@ public class CombatBoard : MonoBehaviour {
 	
 	}
 	
+	public void highlightAttackSquares(CombatCharacter fighter, int range) {
+		int[,] squareDistances = new int[height, width];
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++)
+				squareDistances[i, j] = -1;
+		}
+		
+		SquareIcon curSquare = board[fighter.row, fighter.col];
+		Queue<SquareIcon> sqQueue = new Queue<SquareIcon>();
+		sqQueue.Enqueue(curSquare);
+		List<SquareIcon> neighborList;
+		squareDistances[curSquare.row, curSquare.col] = 0;
+		while(sqQueue.Count != 0) {
+			curSquare = sqQueue.Dequeue();
+			
+			neighborList = getNeighbors(curSquare);
+			foreach(SquareIcon sqIcon in neighborList) {
+				if ((squareDistances[sqIcon.row, sqIcon.col] == -1) && (squareDistances[curSquare.row, curSquare.col] < range)) {
+					squareDistances[sqIcon.row, sqIcon.col] = squareDistances[curSquare.row, curSquare.col] + 1;
+					sqQueue.Enqueue (sqIcon);
+				}
+			}
+		}
+		
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++)
+				if ((squareDistances[i,j] != -1) && squareDistances[i,j] <= range){
+					if(board[i, j].curChar != null){
+						board[i, j].highlightForTarget();
+					}
+					else{
+						board[i, j].highlightForAttack();
+					}
+				}
+		}
+		board[fighter.row, fighter.col].highlightForActive();
+		
+	}
+	
 	public void clearHighlightedSquares() {
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++)
@@ -105,9 +162,9 @@ public class CombatBoard : MonoBehaviour {
 	
 	private List<SquareIcon> getNeighbors(SquareIcon curSquare) {
 		List<SquareIcon> neighborList = new List<SquareIcon>();
-		if((curSquare.row-1>=0) && (curSquare.row-1 < height) && (curSquare.col>0) && (curSquare.col < width))
+		if((curSquare.row-1>=0) && (curSquare.row-1 < height) && (curSquare.col>=0) && (curSquare.col < width))
 			neighborList.Add (board[curSquare.row-1, curSquare.col]);
-		if((curSquare.row+1>=0) && (curSquare.row+1 < height) && (curSquare.col>0) && (curSquare.col < width))
+		if((curSquare.row+1>=0) && (curSquare.row+1 < height) && (curSquare.col>=0) && (curSquare.col < width))
 			neighborList.Add (board[curSquare.row+1, curSquare.col]);
 		if((curSquare.row>=0) && (curSquare.row < height) && (curSquare.col-1>=0) && (curSquare.col-1 < width))
 			neighborList.Add (board[curSquare.row, curSquare.col-1]);

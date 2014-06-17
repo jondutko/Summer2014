@@ -11,6 +11,7 @@ public class Server : MonoBehaviour {
 	public Place currentPlace;
 	public Place targetPlace;
 	public List<Place> placePath;
+	public List<Portal> portalList;
 	public Clan theClan;
 
 	public int countMAX = 0;
@@ -65,6 +66,12 @@ public class Server : MonoBehaviour {
 			for (int i = 0; i < placeList.Length; i++){
 				if (placeList[i].collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))){
 					pathMove(placeList[i]);
+					break;
+				}
+			}
+			for (int j = 0; j < portalList.Count; j++) {
+				if (portalList[j].collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))){
+					portalList[j].OnClick();
 					break;
 				}
 			}

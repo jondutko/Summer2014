@@ -12,20 +12,24 @@ public class TurnOrder : MonoBehaviour {
 	public CombatCharacter currentFighter;
 	private Color moveColor, attackColor;
 	public TurnOrderGUI turnOrderGui;
+	public Ability chosenAbility;
 	
 	public enum PhaseState {
 		Uncompleted,
+		ChooseRange,
 		InProcess,
 		Completed
 	};
 	
 	public void movePhase() {
+		Debug.Log ("Moving");
+		Debug.Log (currentFighter.speed);
 		gameBoard.highlightMoveSquares(currentFighter);
 		move = PhaseState.InProcess;
 	}
 	
 	public void attackPhase() {
-		attack = PhaseState.InProcess;
+		attack = PhaseState.ChooseRange;
 	}
 	
 	public void StartTurn() {
@@ -56,9 +60,10 @@ public class TurnOrder : MonoBehaviour {
 		fighters.Enqueue(currentFighter);
 	}
 	
-	public void addFighter(CombatCharacter fighter, int row, int col) {
+	public CombatCharacter addFighter(CombatCharacter fighter, int row, int col) {
 		CombatCharacter newFighter = Instantiate (fighter, gameBoard.board[row, col].transform.position, Quaternion.identity) as CombatCharacter;
 		gameBoard.setFighterLocation(newFighter, row, col);
 		fighters.Enqueue (newFighter);
+		return newFighter;
 	}
 }

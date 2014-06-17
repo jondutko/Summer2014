@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Abilities\Fireball.cs" />
      <Compile Include="Assets\Ability.cs" />
+     <Compile Include="Assets\AbilityScaling.cs" />
      <Compile Include="Assets\Character.cs" />
      <Compile Include="Assets\CharacterIcon.cs" />
      <Compile Include="Assets\Clan.cs" />
@@ -65,6 +67,7 @@
      <Compile Include="Assets\MenuIcon.cs" />
      <Compile Include="Assets\Place.cs" />
      <Compile Include="Assets\PopupGUI.cs" />
+     <Compile Include="Assets\Portal.cs" />
      <Compile Include="Assets\Quest.cs" />
      <Compile Include="Assets\Server.cs" />
      <Compile Include="Assets\SquareIcon.cs" />

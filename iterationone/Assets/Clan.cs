@@ -14,8 +14,7 @@ public class Clan : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-
-
+			DontDestroyOnLoad(this);
 		}
 
 		public void initializeClan ()
@@ -31,7 +30,6 @@ public class Clan : MonoBehaviour
 			foreach (Transform child in transform) {
 				Character curChar = child.GetComponent<Character> ();
 				curChar.initializeCharacter (1, 100, 80, 30, 25, 30, 28, 6);
-				clanMembers.Add (curChar);
 			}
 
 		}

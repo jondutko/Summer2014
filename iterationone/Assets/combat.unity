@@ -100,6 +100,7 @@ Transform:
   m_LocalPosition: {x: .774332881, y: -.095872879, z: -10.1757469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2070233794}
   - {fileID: 1397678810}
   - {fileID: 970430851}
   - {fileID: 1365225643}
@@ -118,6 +119,7 @@ MonoBehaviour:
   combatAssets:
   - {fileID: 1397678812}
   - {fileID: 970430852}
+  - {fileID: 2070233792}
 --- !u!1 &970430850
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +163,17 @@ MonoBehaviour:
   col: 0
   isPassable: 0
   speed: 4
+  attackRange: 3
   combatName: 
+  abilityList: []
+  ap: 0
+  ad: 0
+  armor: 0
+  mr: 0
+  curHealth: 0
+  maxHealth: 0
+  curMana: 0
+  maxMana: 0
 --- !u!212 &970430853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,6 +243,7 @@ MonoBehaviour:
   row: 0
   col: 0
   highlightedForMove: 0
+  highlightedForAttack: 0
 --- !u!212 &1365225645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -397,6 +410,7 @@ MonoBehaviour:
   numFighters: 1
   currentFighter: {fileID: 0}
   turnOrderGui: {fileID: 1368607758}
+  chosenAbility: {fileID: 0}
 --- !u!114 &1368607758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,4 +491,91 @@ MonoBehaviour:
   col: 0
   isPassable: 0
   speed: 5
+  attackRange: 1
   combatName: 
+  abilityList: []
+  ap: 0
+  ad: 0
+  armor: 0
+  mr: 0
+  curHealth: 0
+  maxHealth: 0
+  curMana: 0
+  maxMana: 0
+--- !u!1 &2070233791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2070233794}
+  - 212: {fileID: 2070233793}
+  - 114: {fileID: 2070233792}
+  m_Layer: 0
+  m_Name: blankcharacter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070233792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070233791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0956a516075404cf7a1778b96405f94b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 0
+  col: 0
+  isPassable: 0
+  speed: 0
+  attackRange: 0
+  combatName: 
+  abilityList: []
+  ap: 0
+  ad: 0
+  armor: 0
+  mr: 0
+  curHealth: 0
+  maxHealth: 0
+  curMana: 0
+  maxMana: 0
+--- !u!212 &2070233793
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070233791}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_SortingLayerID: 393833657
+  m_Sprite: {fileID: 21300000, guid: c89b0f0cd9c5545178a9c7fd12de05a9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &2070233794
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070233791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: -20, z: 20}
+  m_LocalScale: {x: .346150339, y: .346150339, z: 1}
+  m_Children: []
+  m_Father: {fileID: 866704748}

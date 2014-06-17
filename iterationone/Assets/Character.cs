@@ -16,6 +16,7 @@ public class Character : MonoBehaviour {
 	public int nextLevelXP;
 	public int xpLvlDiff;
 	public Equipment[] equipList;
+	public List<Ability> abilList;
 	public int numItemSlots = 6;
 
 	public void initializeCharacter(int lvl, int health, int mana, int strength, int wisdom, int physRes, int magRes, int speed){

@@ -16,6 +16,7 @@ public class CombatAssets : MonoBehaviour {
 				return combatAssets[i];
 			}
 		}
+
 		Debug.Log("Asset "+name+" not found.");
 		return null;
 	}

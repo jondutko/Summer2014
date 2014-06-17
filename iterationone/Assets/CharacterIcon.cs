@@ -112,7 +112,7 @@ public class CharacterIcon : Icon
 		else if(windowView == WindowView.job) {
 			GUI.Label (new Rect (10, 30, width-30, 20), "Current Job: "+assChar.jobObject.title);
 			for(int i = 0; i < assChar.jobObject.skills.Count; i++){
-				GUI.Label(new Rect (30, 50+(20 * i), width-35, 20), new GUIContent(assChar.jobObject.skills[i].abilName, assChar.jobObject.skills[i].abilDescription));
+				GUI.Label(new Rect (30, 50+(20 * i), width-35, 20), new GUIContent(assChar.jobObject.skills[i].abilName, assChar.jobObject.skills[i].abilitySummary(assChar)));
 				if(GUI.Button(new Rect (120, (50+20*i), 40, 20), assChar.jobObject.skills[i].abilCost.ToString()))
 					Debug.Log ("Tried to buy "+assChar.jobObject.skills[i].abilName+" skill for "+assChar.jobObject.skills[i].abilCost+" "+assChar.jobObject.title+ " points.");
 			
