@@ -143,7 +143,7 @@ public class CharacterIcon : Icon
 		listStyle.onHover.background = tex;
 		listStyle.padding.left = listStyle.padding.right = listStyle.padding.top = listStyle.padding.bottom = 4;
 		
-		if(Popup.List(new Rect(20, 50, 200, 200), ref showing, ref selection, guiContent, assChar.clan.unusedEquipment.ToArray(), listStyle, nothing)) {
+/*		if(Popup.List(new Rect(20, 50, 200, 200), ref showing, ref selection, guiContent, assChar.clan.unusedEquipment.ToArray(), listStyle, nothing)) {
 			if(selection!=-1) {
 				Debug.Log (selection);
 				displayingEquipDialog = false;
@@ -157,7 +157,7 @@ public class CharacterIcon : Icon
 			}
 		}
 			
-			
+*/			
 		
 	}
 	

@@ -4,18 +4,25 @@ using System.Collections;
 public class TurnOrderGUI : MonoBehaviour {
 	
 	public bool isDrawing;
-	private Rect windowRect = new Rect(20, 20, 175, 250), secondWindowRect = new Rect(800, 100, 150, 300);
+	private Rect windowRect = new Rect(20, 20, 175, 250), secondWindowRect = new Rect(20, 20, 175, 500);
 	private int uniqueID = 523, uniqueID2 = 167;
 	public CombatCharacter currentFighter;
 	public TurnOrder turnOrder;
+	private Vector2 scrollPosition = Vector2.zero;
+	public int curSelection;
+	private string lockedTooltip;
 	
 	void OnGUI(){
+		GUI.skin.button.normal.textColor = Color.white;
+		GUI.skin.button.hover.textColor = Color.white;
 		if(isDrawing){
-			if(turnOrder.attack == TurnOrder.PhaseState.ChooseRange) {
+			if(turnOrder.attack == TurnOrder.PhaseState.InProcess || turnOrder.attack == TurnOrder.PhaseState.ChooseRange) {
 				secondWindowRect = GUI.ModalWindow(uniqueID2, secondWindowRect, DoMyWindowAbilities, new GUIContent("Actions for " + currentFighter.combatName));
 			}
-			else
+			else {
+				curSelection = -1;
 				windowRect = GUI.Window(uniqueID, windowRect, DoMyWindow, currentFighter.combatName +"'s Turn");
+			}
 		}
 	}
 	
@@ -48,13 +55,18 @@ public class TurnOrderGUI : MonoBehaviour {
 				GUI.Label(new Rect(5, 20, 165, 30), "Already moved!");
 			if(turnOrder.attack == TurnOrder.PhaseState.Uncompleted) {
 				if(GUI.Button(new Rect(5, 55, 165, 30), "Action"))
-					turnOrder.attackPhase();
+					turnOrder.attack = TurnOrder.PhaseState.InProcess;
 			}
 			else if(turnOrder.attack == TurnOrder.PhaseState.InProcess){
-				GUI.Label(new Rect(5, 55, 165, 30), "Performing action!");
+				GUI.enabled = false;
+				GUI.Button(new Rect(5, 55, 165, 30), "Action");
+				GUI.enabled = true;
 			}
-			else
-				GUI.Label(new Rect(5, 55, 165, 30), "Action performed");
+			else{
+				GUI.enabled = false;
+				GUI.Button(new Rect(5, 55, 165, 30), "Action");
+				GUI.enabled = true;
+			}
 			if(GUI.Button(new Rect(5, 90, 165, 30), "Wait")){
 				turnOrder.move = TurnOrder.PhaseState.Completed;
 				turnOrder.attack = TurnOrder.PhaseState.Completed;
@@ -65,30 +77,43 @@ public class TurnOrderGUI : MonoBehaviour {
 	}
 	
 	void DoMyWindowAbilities(int windowID) {
-		int selection = -1;
 		bool showing = true;
-		
-		GUIContent guiContent = new GUIContent();
-		GUIStyle listStyle = new GUIStyle();
-		listStyle.normal.textColor = Color.white;
-		Texture2D tex = new Texture2D(2, 2);
-		Color[] colors = new Color[4];
-		for(int i = 0; i < colors.Length; i++) colors[i] = Color.white;
-		tex.SetPixels(colors);
-		tex.Apply();
-		listStyle.hover.background = tex;
-		listStyle.onHover.background = tex;
-		listStyle.padding.left = listStyle.padding.right = listStyle.padding.top = listStyle.padding.bottom = 4;
-		
-		if(Popup.List(new Rect(10, 30, 200, 200), ref showing, ref selection, guiContent, currentFighter.abilityList.ToArray (), listStyle, nothing)) {
-			if(selection!=-1) {
-				turnOrder.chosenAbility = currentFighter.abilityList[selection];
-				turnOrder.gameBoard.highlightAttackSquares(currentFighter, turnOrder.chosenAbility.range);
-				turnOrder.attack = TurnOrder.PhaseState.InProcess;
-				Debug.Log (selection);
+		int numAbilities = currentFighter.abilityList.Count;
+		scrollPosition = GUI.BeginScrollView(new Rect(5, 25, 165, 250), scrollPosition, new Rect(0, 0, 140, 30*numAbilities));
+		for(int i = 0; i < numAbilities; i++){
+			GUIStyle guiStyle = new GUIStyle();
+			
+			if(i == curSelection) {
+				GUI.skin.button.normal.textColor = Color.yellow;
+				GUI.skin.button.hover.textColor = Color.yellow;
 			}
+			else {
+				GUI.skin.button.normal.textColor = Color.white;
+				GUI.skin.button.hover.textColor = Color.white;
+			}
+			
+			GUIContent guiContent = new GUIContent(currentFighter.abilityList[i].ToString(), currentFighter.abilityList[i].abilitySummary(currentFighter));
+			if(GUI.Button(new Rect(0, 30*i, 150, 25), guiContent)) {
+				lockedTooltip = currentFighter.abilityList[i].abilitySummary(currentFighter);
+				turnOrder.attack = TurnOrder.PhaseState.ChooseRange;
+				turnOrder.gameBoard.clearHighlightedSquares();
+				turnOrder.gameBoard.highlightAttackSquares(currentFighter, currentFighter.abilityList[i].range);
+				curSelection = i;
+			}
+			GUI.skin.button.normal.textColor = Color.white;
+			GUI.skin.button.hover.textColor = Color.white;
 		}
 		
+		GUI.EndScrollView();
+		if(curSelection == -1)
+			GUI.TextArea(new Rect(5, 260, 165, 190), GUI.tooltip);
+		else
+			GUI.TextArea(new Rect(5, 260, 165, 190), lockedTooltip);
+		if(GUI.Button (new Rect(5, 460, 75, 30), "Back")) {
+			curSelection = -1;
+			turnOrder.attack = TurnOrder.PhaseState.Uncompleted;
+			turnOrder.gameBoard.clearHighlightedSquares();
+		}
 		
 		
 	}

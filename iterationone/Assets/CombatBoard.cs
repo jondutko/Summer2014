@@ -53,6 +53,8 @@ public class CombatBoard : MonoBehaviour {
 			newCombChar.mr = clan.clanMembers[i].stats[StatTextures.Stat.MR];
 			newCombChar.speed = clan.clanMembers[i].stats[StatTextures.Stat.Speed];
 			newCombChar.abilityList = clan.clanMembers[i].abilList;
+			SpriteRenderer spriteRenderer = newCombChar.GetComponent<SpriteRenderer>();
+			spriteRenderer.sprite = clan.clanMembers[i].icon;
 		}
 		
 		
@@ -160,7 +162,7 @@ public class CombatBoard : MonoBehaviour {
 		
 	}
 	
-	private List<SquareIcon> getNeighbors(SquareIcon curSquare) {
+	public List<SquareIcon> getNeighbors(SquareIcon curSquare) {
 		List<SquareIcon> neighborList = new List<SquareIcon>();
 		if((curSquare.row-1>=0) && (curSquare.row-1 < height) && (curSquare.col>=0) && (curSquare.col < width))
 			neighborList.Add (board[curSquare.row-1, curSquare.col]);

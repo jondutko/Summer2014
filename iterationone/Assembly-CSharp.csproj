@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Abilities\BasicAttack.cs" />
      <Compile Include="Assets\Abilities\Fireball.cs" />
+     <Compile Include="Assets\AbilitiesWindow.cs" />
      <Compile Include="Assets\Ability.cs" />
      <Compile Include="Assets\AbilityScaling.cs" />
      <Compile Include="Assets\Character.cs" />

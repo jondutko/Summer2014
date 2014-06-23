@@ -28,9 +28,6 @@ public class TurnOrder : MonoBehaviour {
 		move = PhaseState.InProcess;
 	}
 	
-	public void attackPhase() {
-		attack = PhaseState.ChooseRange;
-	}
 	
 	public void StartTurn() {
 		currentFighter = fighters.Dequeue();
@@ -46,13 +43,14 @@ public class TurnOrder : MonoBehaviour {
 			gameBoard.setFighterLocation(currentFighter, row, col);
 			move = PhaseState.Completed;
 			gameBoard.clearHighlightedSquares();
-			gameBoard.board[currentFighter.row, currentFighter.col].highlightForActive();
 		}
-		else if (attack == PhaseState.InProcess) {
+		else if (attack == PhaseState.ChooseRange) {
 			Debug.Log ("Attacked Row: " + row + ", and col: " + col);
+			currentFighter.abilityList[turnOrderGui.curSelection].executeAbility(gameBoard, currentFighter, gameBoard.board[row,col]);
 			attack = PhaseState.Completed;
 			gameBoard.clearHighlightedSquares();
 		}
+		gameBoard.board[currentFighter.row, currentFighter.col].highlightForActive();
 	}
 	
 	public void endTurn(){

@@ -8,6 +8,8 @@ public class Ability : MonoBehaviour {
 	public int manaCost;
 	public int range;
 	public int aoe;
+	public int basePhysDmg;
+	public int baseMagDmg;
 	public AbilityScaling abilScaling;
 	
 	public virtual string abilitySummary(Character curFighter) {
@@ -18,4 +20,5 @@ public class Ability : MonoBehaviour {
 		return null;
 	}
 	public virtual void executeAbility(CombatBoard board, CombatCharacter currentFighter, SquareIcon targetSquare) {}
+	
 }

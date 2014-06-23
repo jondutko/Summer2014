@@ -180,13 +180,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1272289142}
-  - {fileID: 572536025}
-  - {fileID: 1155500322}
-  - {fileID: 572790392}
-  - {fileID: 1168729392}
-  - {fileID: 445256328}
   - {fileID: 367720495}
+  - {fileID: 155963501}
   m_Father: {fileID: 0}
 --- !u!1 &102638530
 GameObject:
@@ -410,6 +405,51 @@ SpriteRenderer:
   m_SortingLayerID: 3921099651
   m_Sprite: {fileID: 21300000, guid: d5d077fb41d8e415981cabe7ebfa5d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &155963499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 155963501}
+  - 114: {fileID: 155963500}
+  m_Layer: 0
+  m_Name: BasicAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &155963500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155963499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba91e0d54c3e4e53951fc2867185bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilName: 
+  abilCost: 0
+  manaCost: 0
+  range: 0
+  aoe: 0
+  basePhysDmg: 0
+  baseMagDmg: 0
+--- !u!4 &155963501
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155963499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 56064188}
 --- !u!1 &202283680
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +655,8 @@ MonoBehaviour:
   manaCost: 0
   range: 0
   aoe: 0
+  basePhysDmg: 0
+  baseMagDmg: 0
 --- !u!1 &387194845
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,135 +737,6 @@ MonoBehaviour:
   armorModifier: 0
   MRModifier: 0
   speedModifier: 0
---- !u!1 &445256327
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 445256328}
-  - 114: {fileID: 445256329}
-  m_Layer: 0
-  m_Name: abil.Wish
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &445256328
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 445256327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 56064188}
---- !u!114 &445256329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 445256327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilName: 
-  abilCost: 0
-  manaCost: 0
-  range: 0
-  aoe: 0
---- !u!1 &572536024
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 572536025}
-  - 114: {fileID: 572536026}
-  m_Layer: 0
-  m_Name: abil.Flare
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &572536025
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 572536024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 56064188}
---- !u!114 &572536026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 572536024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilName: 
-  abilCost: 0
-  manaCost: 0
-  range: 0
-  aoe: 0
---- !u!1 &572790390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 572790392}
-  - 114: {fileID: 572790391}
-  m_Layer: 0
-  m_Name: abil.GuardUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &572790391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 572790390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilName: 
-  abilCost: 0
-  manaCost: 0
-  range: 0
-  aoe: 0
---- !u!4 &572790392
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 572790390}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 56064188}
 --- !u!1 &598938389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1203,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  abilList: []
+  abilList:
+  - {fileID: 155963500}
+  - {fileID: 367720496}
   numItemSlots: 6
 --- !u!4 &1090857663
 Transform:
@@ -1382,92 +1297,6 @@ MonoBehaviour:
   - {fileID: 1655488261}
   theClan: {fileID: 2076106938}
   countMAX: 0
---- !u!1 &1155500321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1155500322}
-  - 114: {fileID: 1155500323}
-  m_Layer: 0
-  m_Name: abil.Force
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1155500322
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1155500321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 56064188}
---- !u!114 &1155500323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1155500321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilName: 
-  abilCost: 0
-  manaCost: 0
-  range: 0
-  aoe: 0
---- !u!1 &1168729390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1168729392}
-  - 114: {fileID: 1168729391}
-  m_Layer: 0
-  m_Name: abil.Taunt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1168729391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1168729390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilName: 
-  abilCost: 0
-  manaCost: 0
-  range: 0
-  aoe: 0
---- !u!4 &1168729392
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1168729390}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 56064188}
 --- !u!1 &1170939146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,49 +1468,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 5, y: 5}
   m_Center: {x: 0, y: 0}
---- !u!1 &1272289140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1272289142}
-  - 114: {fileID: 1272289141}
-  m_Layer: 0
-  m_Name: abil.Bash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1272289141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1272289140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa5a3a235af94cbfae7ed68b46c456d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilName: 
-  abilCost: 0
-  manaCost: 0
-  range: 0
-  aoe: 0
---- !u!4 &1272289142
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1272289140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 56064188}
 --- !u!1 &1340876241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,7 +1511,9 @@ MonoBehaviour:
   - {fileID: 403404207}
   - {fileID: 0}
   - {fileID: 0}
-  abilList: []
+  abilList:
+  - {fileID: 155963500}
+  - {fileID: 367720496}
   numItemSlots: 6
 --- !u!4 &1340876243
 Transform:
