@@ -4,7 +4,7 @@ using System.Collections;
 public class GUIListener : MonoBehaviour {
 
 	public Camera guiCam;
-	private Icon[] iconList;
+	public Icon[] iconList;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,15 +22,32 @@ public class GUIListener : MonoBehaviour {
 	}
 	
 	void MouseHandler() {
-		if (Input.GetMouseButtonDown (0)) {
-			Vector3 mouseLoc = guiCam.ScreenToWorldPoint (Input.mousePosition);
-			mouseLoc.z = 0f;
-			for (int i = 0; i < iconList.Length; i++){
-				if (iconList[i].collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))){
-					iconList[i].onClick();
-					break;
+		if(!Application.loadedLevelName.Equals ("combat")) {
+			if (Input.GetMouseButtonDown (0)) {
+				Vector3 mouseLoc = guiCam.ScreenToWorldPoint (Input.mousePosition);
+				mouseLoc.z = 0f;
+				for (int i = 0; i < iconList.Length; i++){
+					if (iconList[i].collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))){
+						iconList[i].onClick();
+						break;
+					}
 				}
 			}
 		}
+		/*
+		else {
+			if (Input.GetMouseButtonDown (0)) {
+				Vector3 mouseLoc = .ScreenToWorldPoint (Input.mousePosition);
+				mouseLoc.z = 0f;
+				for (int i = 0; i < iconList.Length; i++){
+					if (iconList[i].collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))){
+						iconList[i].onClick();
+						break;
+					}
+				}
+			}
+		
+		}
+		*/
 	}
 }

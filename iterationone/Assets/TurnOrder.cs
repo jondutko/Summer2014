@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,12 +7,20 @@ public class TurnOrder : MonoBehaviour {
 	private Queue<CombatCharacter> fighters = new Queue<CombatCharacter>();
 	public CombatListener combatListener;
 	public CombatBoard gameBoard;
+	public MacroState gameState;
 	public PhaseState move, attack;
 	public int numFighters;
 	public CombatCharacter currentFighter;
 	private Color moveColor, attackColor;
 	public TurnOrderGUI turnOrderGui;
 	public Ability chosenAbility;
+	
+	public enum MacroState{
+		Placement,
+		Combat,
+		Victory,
+		Defeat
+	};
 	
 	public enum PhaseState {
 		Uncompleted,
@@ -36,6 +44,13 @@ public class TurnOrder : MonoBehaviour {
 		turnOrderGui.isDrawing = true;
 		move = PhaseState.Uncompleted;
 		attack = PhaseState.Uncompleted;
+	}
+	
+	public void SetTurnOrder() {
+		GameObject clanGuiObj = GameObject.Find ("ClanGui");
+		GUIListener clanGui = clanGuiObj.GetComponent<GUIListener>();
+		
+		
 	}
 	
 	public void squareClicked(int row, int col){

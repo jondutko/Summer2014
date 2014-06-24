@@ -6,21 +6,36 @@ public class Server : MonoBehaviour {
 
 	public Place[] placeList;
 	private faceMover spriteToMove;
-	public Camera ourCam;
+	public Camera ourCam, guiCam;
 	public bool moving = false, traversePath = false;
 	public Place currentPlace;
 	public Place targetPlace;
 	public List<Place> placePath;
 	public List<Portal> portalList;
 	public Clan theClan;
+	public GUIListener Listener;
 
 	public int countMAX = 0;
 
 	// Use this for initialization
 	void Start () {
+		GameObject clan = GameObject.Find ("Clan");
+		theClan = clan.GetComponent<Clan>();
+	
+		GameObject cam = GameObject.Find ("MainCamera");
+		ourCam = cam.GetComponent<Camera>();
+		
+		GameObject listener = GameObject.Find ("ClanGUI");
+		Listener = listener.GetComponent<GUIListener>();
+		
+		GameObject guicam = GameObject.Find ("GuiCamera");
+		guiCam = guicam.GetComponent<Camera>();
+		
 		GameObject target = GameObject.Find("FirstSprite");
 		spriteToMove = target.GetComponent<faceMover>();
-		theClan.initializeClan();
+		
+		Listener.guiCam = guiCam;
+		
 		placeList = new Place[transform.childCount];
 		int i = 0;
 		foreach (Transform child in transform) {

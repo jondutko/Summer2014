@@ -3,26 +3,28 @@ using System.Collections;
 
 public class Cosmos : MonoBehaviour
 {
-	private Hashtable serverTable = new Hashtable();
-
-	public Cosmos() {
-		serverTable.Add(0, "skag_text_file.txt");
+	public Camera ourCam;
+	public Clan theClan;
+	
+	void Start() {
+		theClan.initializeClan();
+	}
+	void Update() {
+		mouseHandler();
+	}
+	
+	
+	void mouseHandler(){
+		if (Input.GetMouseButtonDown (0)) {
+			Vector3 mouseLoc = ourCam.ScreenToWorldPoint (Input.mousePosition);
+			mouseLoc.z = 0f;
+			foreach(Transform child in transform) {
+				Cosmo cosmo = child.GetComponent<Cosmo>();
+				if(cosmo.collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))) {
+					cosmo.loadServer();
+				}
+			}
+		}
 	}
 
-	public string getServerTextFile(string serverName) {
-		return (string)serverTable[serverName];
-	}
-
-	// Use this for initialization
-	void Start ()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update ()
-	{
-
-	}
 }
-

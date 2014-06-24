@@ -10,6 +10,7 @@ public class CombatCharacter : CombatAsset {
 	public int ap, ad, armor, mr, curHealth, maxHealth, curMana, maxMana;
 	private float A = 2139.0f;
 	private float B = 46.25f;
+	public int startRow, startCol;
 	
 	
 	public void takePhysicalDamage(float dmg) {

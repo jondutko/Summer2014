@@ -9,12 +9,20 @@ public class BasicAttack : Ability{
 		manaCost = 0;
 		range = 1;
 		aoe = 0;
-		abilScaling = new AbilityScaling(1, 0);
+		abilScaling = new AbilityScaling(0, 1);
 	}
 	
 	
 	public override void executeAbility(CombatBoard board, CombatCharacter currentFighter, SquareIcon targetSquare) {
+		if (targetSquare.curChar != null) {
+			Debug.Log ("Raw magic dmg: " + baseMagDmg + ", and scaling raw: " + abilScaling.magicScaling * currentFighter.ap);
+			Debug.Log ("Raw physical dmg: " + basePhysDmg + ", and scaling raw: " + abilScaling.physicalScaling * currentFighter.ad);
+			targetSquare.curChar.takeMagicalDamage ((float) baseMagDmg + abilScaling.magicScaling * currentFighter.ap);
+			targetSquare.curChar.takePhysicalDamage ((float) basePhysDmg + abilScaling.physicalScaling * currentFighter.ad);
+		}
 		
+		
+		Debug.Log ("Basic Melee Attack");
 	}
 	
 	
