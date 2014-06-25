@@ -14,10 +14,16 @@ public class CombatBoard : MonoBehaviour {
 	public Vector3 sqExtents, lowerLeft;
 	public Clan theClan;
 	public GUIListener clanGui;
+	public Camera myCam;
+	public List<Icon> iconList;
+	public Queue<CombatCharacter> toBePlaced;
+	public CombatCharacter beingPlaced;
 	
 	// Use this for initialization
 	void Start () {
 		turnOrder.gameState = TurnOrder.MacroState.Placement;
+		GameObject stackage = GameObject.Find("Stats");
+		turnOrder.turnOrderGui.iconPackage = stackage.GetComponent<StatTextures>();
 		float scalar = Mathf.Max (height / 6f, width/12f);
 		sq.transform.localScale = new Vector3(1/scalar, 1/scalar, 1);
 		float sqWidth = sq.icon.textureRect.width;
@@ -44,72 +50,77 @@ public class CombatBoard : MonoBehaviour {
 		GameObject clanGuiObj = GameObject.Find ("ClanGUI");
 		clanGui = clanGuiObj.GetComponent<GUIListener>();
 		
+		clanGui.guiCam = myCam;
 		
-		
-		CombatCharacter gob = (CombatCharacter) library.getAssetByName("goblin");
-		int gobRow = 5;
-		int gobCol = 7;
-		Debug.Log ("TAYLOR");
-		gob.combatName = "Hissafiss";
-		turnOrder.addFighter(gob, gobRow, gobCol);
-		
-		CombatCharacter gob2 = (CombatCharacter) library.getAssetByName("goblin");
-		int gob2Row = 4;
-		int gob2Col = 10;
-		gob2.combatName = "Faggotmancer";
-		turnOrder.addFighter(gob2, gob2Row, gob2Col);
+		CombatCharacter blankGob = (CombatCharacter) library.getAssetByName("goblin");
 
 		List<CombatCharacter> creeps = new List<CombatCharacter>();
-		creeps.Add (gob);
-		creeps.Add (gob2);
+		int numGobs = 3;
+		for(int i = 0; i < numGobs; i++)
+			creeps.Add (blankGob);
+		
+		CombatCharacter blankHero = (CombatCharacter) library.getAssetByName("blankcharacter");
+		
+		List<CombatCharacter> heroes = new List<CombatCharacter>();
+		foreach (Character hero in theClan.clanMembers){
+			heroes.Add (blankHero);
+		}
 
-		PopulateFighters(creeps);
-		
-		
-		turnOrder.StartTurn();
+		PopulateFighters(creeps, heroes);
+		toBePlaced = new Queue<CombatCharacter>(turnOrder.fighters);
+
 	}
 
-	public void PopulateFighters(List<CombatCharacter> creeps) {
-		int slot = 0;
+	public void PopulateFighters(List<CombatCharacter> creeps, List<CombatCharacter> heroes) {
 		GameObject blankIconObject = GameObject.Find("blankcreepicon");
 		CreepIcon blankIcon = blankIconObject.GetComponent<CreepIcon>();
+		
+		GameObject blankIconObject2 = GameObject.Find("blankcharactericon");
+		CharacterIcon blankCharIcon = blankIconObject2.GetComponent<CharacterIcon>();
+		
+		iconList = new List<Icon>();
+		int i = 0;
 		foreach (CombatCharacter creep in creeps){
-			CreepIcon newCreepIcon = Instantiate(blankIcon, new Vector3(12, 8, 0), Quaternion.identity) as CreepIcon;
-			newCreepIcon.GetComponent<SpriteRenderer>().sprite = creep.GetComponent<SpriteRenderer>().sprite;
+			CreepIcon newCreepIcon = Instantiate(blankIcon, new Vector3(0, 0, 0), Quaternion.identity) as CreepIcon;
+			CombatCharacter newCreep = Instantiate (creep, new Vector3(20, 20, 0), Quaternion.identity) as CombatCharacter;
+			newCreepIcon.GetComponent<SpriteRenderer>().sprite = newCreep.GetComponent<SpriteRenderer>().sprite;
+			newCreep.combatName = "Goblin " + i;
+			newCreepIcon.combatAssChar = newCreep;
+			iconList.Add (newCreepIcon);
+			i++;
+		}
+		
+		i = 0;
+		foreach (CombatCharacter hero in heroes){
+			CharacterIcon newCharIcon = Instantiate(blankCharIcon, new Vector3(0, i, 0), Quaternion.identity) as CharacterIcon;
+			CombatCharacter newHero = Instantiate(hero, new Vector3(20, 20, 0), Quaternion.identity) as CombatCharacter;
+			newCharIcon.GetComponent<SpriteRenderer>().sprite = clanGui.iconList[i].GetComponent<SpriteRenderer>().sprite;
+			newHero.GetComponent<SpriteRenderer>().sprite = clanGui.iconList[i].GetComponent<SpriteRenderer>().sprite;
+			newCharIcon.combatAssChar = newHero;
+			newCharIcon.assChar = theClan.clanMembers[i];
+			newCharIcon.setAttributes();
+			iconList.Add (newCharIcon);
+			i++;
+		}
+		
+		iconList.Sort((c1, c2) => (int) (c2.combatAssChar.speed - c1.combatAssChar.speed));
+		
+		int slot = 0;
+		foreach(Icon icon in iconList) {
+			BoxCollider2D temp = icon.GetComponent<BoxCollider2D>();
+			temp.size = icon.GetComponent<SpriteRenderer>().bounds.size;
+			icon.combatAssChar.transform.position = new Vector3(7, iconList.Count -slot*1, 0);
+			icon.transform.localScale = new Vector3(.5f, .5f, .5f);
+			icon.transform.position = new Vector3(17, iconList.Count - slot*3, 0);
+			turnOrder.fighters.Enqueue(icon.combatAssChar);
 			slot++;
 		}
-		/*
-		CharacterIcon toCopy = (CharacterIcon) clanGui.iconList[0];
-		
-
-	
-		CharacterIcon newIcon = Instantiate (toCopy, new Vector3(1.0f, (float)slot, 0.0f), Quaternion.identity) as CharacterIcon;
-		
-		/*
 		
 		
-		for(int i = 0; i < clan.clanMembers.Count; i++) {
-			CombatCharacter combChar = (CombatCharacter) library.getAssetByName("blankcharacter");
-			CombatCharacter newCombChar = turnOrder.addFighter (combChar, 0, i);
-			
-			newCombChar.name = clan.clanMembers[i].charName;
-			newCombChar.combatName = clan.clanMembers[i].charName;
-			newCombChar.maxHealth = clan.clanMembers[i].stats[StatTextures.Stat.Health];
-			newCombChar.curHealth = clan.clanMembers[i].stats[StatTextures.Stat.Health];
-			newCombChar.maxMana = clan.clanMembers[i].stats[StatTextures.Stat.Mana];
-			newCombChar.curMana = clan.clanMembers[i].stats[StatTextures.Stat.Mana];
-			newCombChar.ad = clan.clanMembers[i].stats[StatTextures.Stat.AD];
-			newCombChar.ap = clan.clanMembers[i].stats[StatTextures.Stat.AP];
-			newCombChar.armor = clan.clanMembers[i].stats[StatTextures.Stat.Armor];
-			newCombChar.mr = clan.clanMembers[i].stats[StatTextures.Stat.MR];
-			newCombChar.speed = clan.clanMembers[i].stats[StatTextures.Stat.Speed];
-			newCombChar.abilityList = clan.clanMembers[i].abilList;
-			SpriteRenderer spriteRenderer = newCombChar.GetComponent<SpriteRenderer>();
-			spriteRenderer.sprite = clan.clanMembers[i].icon;
-		}
-		*/
 	}
 	
+	
+
 	
 	public void highlightMoveSquares(CombatCharacter fighter) {
 		int[,] squareDistances = new int[height, width];

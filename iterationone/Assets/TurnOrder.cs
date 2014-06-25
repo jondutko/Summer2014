@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TurnOrder : MonoBehaviour {
 
-	private Queue<CombatCharacter> fighters = new Queue<CombatCharacter>();
+	public Queue<CombatCharacter> fighters = new Queue<CombatCharacter>();
 	public CombatListener combatListener;
 	public CombatBoard gameBoard;
 	public MacroState gameState;
@@ -46,26 +46,33 @@ public class TurnOrder : MonoBehaviour {
 		attack = PhaseState.Uncompleted;
 	}
 	
-	public void SetTurnOrder() {
-		GameObject clanGuiObj = GameObject.Find ("ClanGui");
-		GUIListener clanGui = clanGuiObj.GetComponent<GUIListener>();
-		
-		
-	}
 	
 	public void squareClicked(int row, int col){
-		if(move == PhaseState.InProcess) {
-			gameBoard.setFighterLocation(currentFighter, row, col);
-			move = PhaseState.Completed;
-			gameBoard.clearHighlightedSquares();
+		if(gameState == MacroState.Placement){
+			gameBoard.setFighterLocation(gameBoard.toBePlaced.Dequeue(), row, col);
+			if(gameBoard.toBePlaced.Count == 0){
+				gameState = MacroState.Combat;
+				StartTurn();
+			}
 		}
-		else if (attack == PhaseState.ChooseRange) {
-			Debug.Log ("Attacked Row: " + row + ", and col: " + col);
-			currentFighter.abilityList[turnOrderGui.curSelection].executeAbility(gameBoard, currentFighter, gameBoard.board[row,col]);
-			attack = PhaseState.Completed;
-			gameBoard.clearHighlightedSquares();
+		else if(gameState == MacroState.Combat){
+			if(move == PhaseState.InProcess) {
+				if(gameBoard.board[row, col].highlightedForMove){
+					gameBoard.setFighterLocation(currentFighter, row, col);
+					move = PhaseState.Completed;
+					gameBoard.clearHighlightedSquares();
+				}
+			}
+			else if (attack == PhaseState.ChooseRange) {
+				if(gameBoard.board[row, col].highlightedForAttack || gameBoard.board[row, col].highlightedForTarget){
+					Debug.Log ("Attacked Row: " + row + ", and col: " + col);
+					currentFighter.abilityList[turnOrderGui.curSelection].executeAbility(gameBoard, currentFighter, gameBoard.board[row,col]);
+					attack = PhaseState.Completed;
+					gameBoard.clearHighlightedSquares();
+				}
+			}
+			gameBoard.board[currentFighter.row, currentFighter.col].highlightForActive();
 		}
-		gameBoard.board[currentFighter.row, currentFighter.col].highlightForActive();
 	}
 	
 	public void endTurn(){
@@ -74,9 +81,8 @@ public class TurnOrder : MonoBehaviour {
 	}
 	
 	public CombatCharacter addFighter(CombatCharacter fighter, int row, int col) {
-		CombatCharacter newFighter = Instantiate (fighter, gameBoard.board[row, col].transform.position, Quaternion.identity) as CombatCharacter;
-		gameBoard.setFighterLocation(newFighter, row, col);
-		fighters.Enqueue (newFighter);
-		return newFighter;
+		gameBoard.setFighterLocation(fighter, row, col);
+		fighters.Enqueue (fighter);
+		return fighter;
 	}
 }

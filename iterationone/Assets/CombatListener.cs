@@ -29,6 +29,12 @@ public class CombatListener : MonoBehaviour {
 					}
 				}
 			}
+			foreach(Icon icon in gameBoard.iconList){
+				if(icon.collider2D.OverlapPoint(new Vector2(mouseLoc.x, mouseLoc.y))){
+					Debug.Log ("clicked on: " + icon.combatAssChar.combatName);
+					icon.onClick();
+				}
+			}
 		}
 	}
 }

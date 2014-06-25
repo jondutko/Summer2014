@@ -4,7 +4,6 @@ using System.Collections;
 public class CreepIcon : Icon
 {
 
-	public CombatCharacter assChar;
 	public int uniqueID;
 	public StatTextures iconPackage;
 	bool isDrawing = false;
@@ -13,16 +12,14 @@ public class CreepIcon : Icon
 	int height = 300;
 	int vOffset = 35;
 
-		// Use this for initialization
-		void Start ()
-		{
+	public override void onClick() {
+		GameObject gameObj = GameObject.Find ("MainCamera");
+		TurnOrderGUI turnOrderGUI = gameObj.GetComponent<TurnOrderGUI>();
+		
+		turnOrderGUI.displayingChar = true;
+		turnOrderGUI.displayCombChar = combatAssChar;
 	
-		}
+	}
 	
-		// Update is called once per frame
-		void Update ()
-		{
-	
-		}
 }
 

@@ -17,7 +17,7 @@ public class CombatCharacter : CombatAsset {
 		float damageProportion = A / Mathf.Pow(armor + B, 2.0f);
 		Debug.Log ("damage proportion: " + damageProportion);
 		int dmgToTake = Mathf.CeilToInt(damageProportion * dmg);
-		curHealth =- dmgToTake;
+		curHealth = curHealth - dmgToTake;
 		Debug.Log (combatName + " took " + dmgToTake + " physical damage");
 	
 	}
@@ -26,7 +26,7 @@ public class CombatCharacter : CombatAsset {
 		float damageProportion = A / Mathf.Pow(mr + B, 2.0f);
 		Debug.Log ("damage proportion: " + damageProportion);
 		int dmgToTake = Mathf.CeilToInt(damageProportion * dmg);
-		curHealth =- dmgToTake;
+		curHealth = curHealth - dmgToTake;
 		Debug.Log (combatName + " took " + dmgToTake + "magical damage");
 		
 	}

@@ -4,13 +4,17 @@ using System.Collections;
 public class TurnOrderGUI : MonoBehaviour {
 	
 	public bool isDrawing;
-	private Rect windowRect = new Rect(20, 20, 175, 250), secondWindowRect = new Rect(20, 20, 175, 500);
-	private int uniqueID = 523, uniqueID2 = 167;
+	private Rect windowRect = new Rect(20, 20, 175, 250), secondWindowRect = new Rect(20, 20, 175, 500), charWindowRect = new Rect(5, 400, 200, 200);
+	private int uniqueID = 523, uniqueID2 = 167, charID = 883;
 	public CombatCharacter currentFighter;
 	public TurnOrder turnOrder;
 	private Vector2 scrollPosition = Vector2.zero;
 	public int curSelection;
 	private string lockedTooltip;
+	
+	public bool displayingChar = false;
+	public CombatCharacter displayCombChar;
+	public StatTextures iconPackage;
 	
 	void OnGUI(){
 		GUI.skin.button.normal.textColor = Color.white;
@@ -23,6 +27,43 @@ public class TurnOrderGUI : MonoBehaviour {
 				curSelection = -1;
 				windowRect = GUI.Window(uniqueID, windowRect, DoMyWindow, currentFighter.combatName +"'s Turn");
 			}
+		}
+		if(displayingChar){
+			charWindowRect = GUI.Window(charID, charWindowRect, DoMyCharWindow, displayCombChar.combatName);
+		}
+	}
+	
+	void DoMyCharWindow(int windowID){
+		int vOffset = 35;
+		GUI.Label (new Rect (10, 20, 30, 30), iconPackage.hp);
+		GUI.Label (new Rect (45, 23, 50, 30), displayCombChar.curHealth + "/" +displayCombChar.maxHealth);
+		// mana
+		GUI.Label (new Rect (110, 20, 30, 30), iconPackage.mana);
+		GUI.Label (new Rect (145, 23, 50, 30), displayCombChar.curMana +"/"+displayCombChar.maxMana);
+		
+		// ad
+		GUI.Label (new Rect (10, 20 + vOffset, 30, 30), iconPackage.ad);
+		GUI.Label (new Rect (45, 23 + vOffset, 50, 30), displayCombChar.ad.ToString());
+		
+		// ap
+		GUI.Label (new Rect (110, 20 + vOffset, 30, 30), iconPackage.ap);
+		GUI.Label (new Rect (145, 23 + vOffset, 50, 30), displayCombChar.ap.ToString());
+		
+		// armor
+		GUI.Label (new Rect (10, 20 + 2*vOffset, 30, 30), iconPackage.armor);
+		GUI.Label (new Rect (45, 23 + 2*vOffset, 50, 30), displayCombChar.armor.ToString());
+		
+		// mr
+		GUI.Label (new Rect (110, 20 + 2*vOffset, 30, 30), iconPackage.mr);
+		GUI.Label (new Rect (145, 23 + 2*vOffset, 50, 30), displayCombChar.mr.ToString());
+		
+		// speed
+		GUI.Label (new Rect (10, 20 + 3*vOffset, 30, 30), iconPackage.speed);
+		GUI.Label (new Rect (45, 23 + 3*vOffset, 50, 30), displayCombChar.speed.ToString());
+		
+		if(GUI.Button (new Rect(10, 20 + 4*vOffset, 50, 30), "Close")){
+			displayingChar = false;
+			displayCombChar = null;
 		}
 	}
 	

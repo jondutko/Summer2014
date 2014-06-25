@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Icon : MonoBehaviour {
+public class Icon : MonoBehaviour{
 
 	public Sprite icon;
-	
+	public CombatCharacter combatAssChar;
 
 	// Use this for initialization
 	void Start () {

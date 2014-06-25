@@ -161,12 +161,37 @@ public class CharacterIcon : Icon
 		
 	}
 	
+	public void setAttributes() {
+		combatAssChar.combatName = assChar.charName;
+		combatAssChar.maxHealth = assChar.stats[StatTextures.Stat.Health];
+		combatAssChar.curHealth = assChar.stats[StatTextures.Stat.Health];
+		combatAssChar.maxMana = assChar.stats[StatTextures.Stat.Mana];
+		combatAssChar.curMana = assChar.stats[StatTextures.Stat.Mana];
+		combatAssChar.ad = assChar.stats[StatTextures.Stat.AD];
+		combatAssChar.ap = assChar.stats[StatTextures.Stat.AP];
+		combatAssChar.armor = assChar.stats[StatTextures.Stat.Armor];
+		combatAssChar.mr = assChar.stats[StatTextures.Stat.MR];
+		combatAssChar.speed = assChar.stats[StatTextures.Stat.Speed];
+		combatAssChar.abilityList = assChar.abilList;
+		SpriteRenderer spriteRenderer = combatAssChar.GetComponent<SpriteRenderer>();
+		spriteRenderer.sprite = assChar.icon;
+	}
+	
+	
 	void nothing() {}
 	
 	public override void onClick() {
-		assChar.updateStats();
-		windowRect = new Rect(20 + (20*uniqueID), 20, width, height);
-		isDrawing = true;
+		if(!Application.loadedLevelName.Equals ("combat")) {
+			assChar.updateStats();
+			windowRect = new Rect(20 + (20*uniqueID), 20, width, height);
+			isDrawing = true;
+		}
+		else{
+			GameObject gameObj = GameObject.Find ("MainCamera");
+			TurnOrderGUI turnOrderGUI = gameObj.GetComponent<TurnOrderGUI>();
+			turnOrderGUI.displayingChar = true;
+			turnOrderGUI.displayCombChar = combatAssChar;
+		}
 	}
 
 }

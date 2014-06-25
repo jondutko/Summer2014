@@ -7,7 +7,7 @@ public class SquareIcon : Icon {
 	public CombatCharacter curChar;
 	public int row;
 	public int col;
-	public bool highlightedForMove, highlightedForAttack;
+	public bool highlightedForMove, highlightedForAttack, highlightedForTarget;
 	
 	// Use this for initialization
 	void Start () {
@@ -42,7 +42,7 @@ public class SquareIcon : Icon {
 		moveColor.b = 0.73f;
 		moveColor.a = 1;
 		this.GetComponent<SpriteRenderer>().color = moveColor;
-		highlightedForMove = true;	
+		highlightedForAttack = true;	
 	}
 	
 	public void highlightForTarget() {
@@ -52,7 +52,7 @@ public class SquareIcon : Icon {
 		moveColor.b = 0.52f;
 		moveColor.a = 1;
 		this.GetComponent<SpriteRenderer>().color = moveColor;
-		highlightedForMove = true;	
+		highlightedForTarget = true;	
 	}
 	
 	public void highlightForActive() {
